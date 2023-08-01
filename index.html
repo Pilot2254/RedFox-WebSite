@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect to Welcome</title>
+    <script>
+        // Redirect function
+        function redirectToWelcome() {
+            window.location.href = "/welcome/";
+        }
+
+        // Automatically redirect after the page loads
+        window.onload = function() {
+            redirectToWelcome();
+        };
+    </script>
+</head>
+<body>
+    <!-- Optionally, you can add a message or content for users who have JavaScript disabled -->
+    <p>If you are not redirected, please <a href="/welcome/">click here</a>.</p>
+</body>
+</html>
