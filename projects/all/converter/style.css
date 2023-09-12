@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-top: 200px;
+    font-size: xx-large;
+  }
+  
+  label {
+    display: block;
+    margin-top: 25px;
+    font-size: x-large;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    width: 250px;
+    height: 50px; 
+  }
+  
+  button {
+    padding: 25px 25px;
+    font-size: 20px;
+    background-color: #008CBA;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 20px;
+
+  }
+  
+  button:hover {
+    background-color: #005f75;
+  }
+  
+  p#result {
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
