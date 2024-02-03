@@ -5,7 +5,7 @@ html,html a {
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	background: #e2e2e2;
+	background: #292929;
 }
 
 #plans,#plans ul,#plans ul li {
@@ -30,7 +30,7 @@ body {
 }
 
 #pricePlans #plans .plan {
-	background: #fff;
+	background: #ffffff;
 	float: left;
 	width: 100%;
 	text-align: center;
@@ -116,7 +116,7 @@ body {
 	margin: 1.5em 0 1.8em;
 }
 
-.planContainer .button a.bestPlanButton {
+.planContainer .button a.bestPlanButton a.bestValueButton {
 	color: #fff;
 	background: #f7814d;
 	border: 2px solid #f7814d;
@@ -211,3 +211,5 @@ body {
 }
 
 }
+
+
