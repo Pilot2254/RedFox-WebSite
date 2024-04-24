@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="../../images/user-icon.png">
+    <style>
+        /* Custom scrollbar styles */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #2c2f33;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #7289da;
+            border-radius: 4px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #99aab5;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto bg-gray-800 rounded overflow-hidden shadow-lg">
+            <div class="flex justify-between items-center px-8 py-6">
+                <div class="flex items-center">
+                    <img class="w-20 h-20 rounded-full" src="../../images/pilot2254.png" alt="Profile Icon">
+                    <div class="ml-8">
+                        <div class="font-bold text-2xl">Michal Flaška</div>
+                        <div class="text-gray-300 text-lg">@pilot2254</div>
+                        <div class="text-gray-300 text-lg">pilot2254.gamer@gmail.com</div>
+                        <div class="text-gray-300 text-lg">+421 948 268 656</div>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <img class="w-8 h-8 mr-4" src="../../images/views.png" alt="Views Icon">
+                    <p class="text-gray-300">Profile Views: 0</p>
+                </div>
+            </div>
+            <div class="px-8 py-6">
+                <p class="text-gray-300 text-lg">
+                    Hi, my name is Pilot2254. I created this page and started Team RedFox which you now use on the web and discord. I'm glad you're one of the people who look at my profile and say "hmm, ..."
+                </p>
+            </div>
+        </div>
+        <div class="mt-8">
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded overflow-hidden shadow-lg mb-4">
+                <div class="px-8 py-4 flex items-center">
+                    <img class="w-12 h-12 rounded-full" src="../../images/user-icon.png" alt="Profile Icon">
+                    <input type="text" placeholder="Add Comment" class="ml-4 bg-gray-700 text-white border border-gray-600 px-3 py-2 rounded-lg focus:outline-none focus:border-blue-400 w-full">
+                    <button class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Publish</button>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded overflow-hidden shadow-lg mb-4">
+                <div class="px-8 py-4 flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-12 h-12 rounded-full" src="../../images/user-icon.png" alt="User Logo">
+                    </div>
+                    <div class="ml-4">
+                        <div class="font-bold text-lg">@kayley</div>
+                        <div class="text-gray-300 text-sm">Comment text goes here...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded overflow-hidden shadow-lg mb-4">
+                <div class="px-8 py-4 flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="w-12 h-12 rounded-full" src="../../images/user-icon.png" alt="User Logo">
+                    </div>
+                    <div class="ml-4">
+                        <div class="font-bold text-lg">@maty7253</div>
+                        <div class="text-gray-300 text-sm">Another comment text...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

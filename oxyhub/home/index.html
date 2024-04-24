@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OxyHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="../images/default-no-bg.png">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+            animation-timing-function: ease-out;
+        }
+
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+
+        /* Custom scrollbar styles */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #2c2f33;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #7289da;
+            border-radius: 4px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #99aab5;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 p-4 animated fadeInUp">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="../images/default-no-bg.png" alt="Logo" class="h-10">
+                <span class="text-lg font-semibold ml-2">OxyHub</span>
+            </div>
+            <div>
+                <a href="../home/" class="text-gray-300 hover:text-white px-3 py-2">Home</a>
+                <a href="../announcements/" class="text-gray-300 hover:text-white px-3 py-2">Announcements</a>
+                <a href="../app/" class="text-cyan-400 hover:text-white px-3 py-2">Application</a>
+                <a href="../news/" class="text-gray-300 hover:text-white px-3 py-2">News</a>
+                <a href="../contact/" class="text-gray-300 hover:text-white px-3 py-2">Contact</a>
+                <a href="../account/sign-up/" class="text-green-400 hover:text-white px-3 py-2">Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-cover bg-center py-40 relative animated fadeInUp" style="background-image: url('../images/background.png');">
+        <div class="absolute inset-0 bg-gray-900 opacity-75"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-bold">Welcome to OxyHub</h1>
+            <p class="mt-4 text-xl md:text-2xl">The new chat application similar to discord, reddit and twitter !</p>
+            <br>
+            <div class="mt-8">
+                <a href="../app/" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded-lg">Get Started</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- About Section -->
+    <section class="bg-gray-800 py-20">
+        <div class="container mx-auto animated fadeInUp">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">About Us</h2>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xl leading-relaxed mb-8">Welcome to Oxygen (OxyHub)! At Oxygen, we've embarked on a journey to redefine online communication and community interaction. Imagine a platform that combines the best elements of Twitter, Reddit, and Discord into one seamless web application – that's OxyHub. With Oxygen, we're revolutionizing the way people connect, share ideas, and engage with communities online. Whether you're looking to discover trending topics, engage in lively discussions, or connect with like-minded individuals, Oxygen provides the perfect space to do so.</p>
+                <p class="text-xl leading-relaxed">Our mission is simple: to create a platform that fosters meaningful conversations, promotes collaboration, and empowers users to express themselves freely in a safe and inclusive environment. Join us as we embark on this exciting adventure. Together, let's breathe new life into online communities with Oxygen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="bg-gray-900 py-20">
+        <div class="container mx-auto animated fadeInUp">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">How it Works</h2>
+            <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-8 rounded-lg bg-gray-800">
+                    <span class="text-6xl text-blue-500">1.</span>
+                    <p class="text-xl mt-4">Sign up for OxyHub</p>
+                </div>
+                <div class="text-center p-8 rounded-lg bg-gray-800">
+                    <span class="text-6xl text-blue-500">2.</span>
+                    <p class="text-xl mt-4">Launch the client</p>
+                </div>
+                <div class="text-center p-8 rounded-lg bg-gray-800">
+                    <span class="text-6xl text-blue-500">3.</span>
+                    <p class="text-xl mt-4">Chat with others</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Features Section -->
+<section class="py-20 bg-gray-800">
+    <div class="container px-4 mx-auto animated fadeInUp">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Key Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">User Profiles and Feeds</h3>
+                <ul class="list-disc pl-6">
+                    <li>User profiles similar to Twitter, where users can post updates, photos, videos, and other media.</li>
+                    <br>
+                    <li>A feed algorithm to prioritize content based on relevance and popularity within the user's interests.</li>
+                </ul>
+            </div>
+            <!-- Feature 2 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Communities and Sub-communities</h3>
+                <ul class="list-disc pl-6">
+                    <li>Ability to create and join communities (similar to subreddits) focused on specific topics, interests, or themes.</li>
+                    <br>
+                    <li>Each community can have its own moderators, rules, and customizations, similar to Reddit.</li>
+                </ul>
+            </div>
+            <!-- Feature 3 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Real-time Chat and Messaging</h3>
+                <ul class="list-disc pl-6">
+                    <li>Integrated chat functionality similar to Discord, allowing users to communicate with each other in real-time through text, voice, and video.</li>
+                    <br>
+                    <li>Option for public channels and private messaging, with moderation tools for community leaders.</li>
+                </ul>
+            </div>
+            <!-- Feature 4-->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Content Discovery and Recommendations</h3>
+                <ul class="list-disc pl-6">
+                    <li>Explore page featuring trending topics, popular posts, and recommended communities based on user preferences and activity.</li>
+                    <br>
+                    <li>Personalized recommendations for users to discover new content and communities based on their interests and interactions.</li>
+                </ul>
+            </div>
+            <!-- Feature 5 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Multimedia Support</h3>
+                <ul class="list-disc pl-6">
+                    <li>Support for various types of media including images, videos, GIFs, and links.</li>
+                    <br>
+                    <li>Advanced media sharing options, such as embedding media directly into posts and comments.</li>
+                </ul>
+            </div>
+            <!-- Feature 6 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Moderation and Community Management</h3>
+                <ul class="list-disc pl-6">
+                    <li>Tools for community moderators to manage content, enforce rules, and moderate discussions.</li>
+                    <br>
+                    <li>Reporting and flagging system for users to notify moderators of inappropriate content or behavior.</li>
+                </ul>
+            </div>
+            <!-- Feature 7 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Customization and Personalization</h3>
+                <ul class="list-disc pl-6">
+                    <li>Customizable user profiles and community pages with options for themes, banners, and layouts.</li>
+                    <br>
+                    <li>Personalization features such as customizable feed preferences and notification settings.</li>
+                </ul>
+            </div>
+            <!-- Feature 8 -->
+            <div class="bg-violet-800 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">[BETA] Integration with External Platforms</h3>
+                <ul class="list-disc pl-6">
+                    <li>Integration with external services and platforms, such as Twitter, YouTube, and Spotify, allowing users to share content seamlessly across platforms.</li>
+                    <br>
+                    <li>API support for third-party developers to build integrations and extensions for the platform.</li>
+                </ul>
+            </div>
+            <!-- Feature 9 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Accessibility and Privacy</h3>
+                <ul class="list-disc pl-6">
+                    <li>Accessibility features to ensure the platform is usable for users with disabilities.</li>
+                    <br>
+                    <li>Robust privacy settings giving users control over their data, visibility, and interactions.</li>
+                </ul>
+            </div>
+            <!-- Feature 10 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Cross-platform Compatibility</h3>
+                <ul class="list-disc pl-6">
+                    <li>Availability on multiple platforms including web, iOS, Android, and desktop applications.</li>
+                    <br>
+                    <li>Synchronization of user data and preferences across devices for a seamless user experience.</li>
+                </ul>
+            </div>
+            <!-- Feature 11 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Analytics and Insights</h3>
+                <ul class="list-disc pl-6">
+                    <li>Analytics tools for users and community moderators to track engagement, audience demographics, and other metrics.</li>
+                    <br>
+                    <li>Insights into trending topics, popular content formats, and community growth patterns.</li>
+                </ul>
+            </div>
+            <!-- Feature 12 -->
+            <div class="bg-gray-700 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Search and Discovery</h3>
+                <ul class="list-disc pl-6">
+                    <li>Advanced search functionality allowing users to find specific posts, communities, or users.</li>
+                    <br>
+                    <li>Filters and sorting options for search results based on relevance, popularity, and recency.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Supported Games Section -->
+<section class="bg-gray-800 py-20">
+    <div class="container px-4 mx-auto animated fadeInUp">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">OxyTeam</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Game 1 -->
+            <div class="bg-sky-800 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Pilot2254</h3>
+                <ul class="list-disc pl-6">
+                    <li>CEO Oxygen & RedFox</li>
+                    <li>Head Developer</li>
+                    <li>Front-End Developer</li>
+                </ul>
+                <p class="text-l mt-4">Hey! I like programming and playing online games. Recently when I was browsing twitter and looking for some good posts I found out that twitter is not as good as it used to be... So I decided to invent Oxygen, which will be better and safer at the same time!</p>
+            </div>
+            <!-- Game 2 -->
+            <div class="bg-sky-800 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">SkyMiku</h3>
+                <ul class="list-disc pl-6">
+                    <li>Designer</li>
+                    <li>Tester</li>
+                    <li>Ideas</li>
+                </ul>
+                <p class="text-l mt-4">SkyMiku has a very interesting position in my life. He has supported me many times, and he has also supported my other projects. And he never bailed on me like others tend to do.</p>
+            </div>
+            <!-- Game 3 -->
+            <div class="bg-sky-800 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Maty7253</h3>
+                <ul class="list-disc pl-6">
+                    <li>Co-CEO Team RedFox</li>
+                    <li>Designer</li>
+                    <li>Back-End Developer</li>
+                </ul>
+                <p class="text-l mt-4">Yo, I'm Maty. When I heard about this project called Oxygen and what it was going to be I was like "WOW, this project is going to be a blast if it gets out to the people..." I've been working for RedFox for 2 years, but there has never been a project as big as Oxygen</p>
+            </div>
+            <!-- Game 4 -->
+            <div class="bg-sky-800 p-8 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4">Thanks to RedFox Members</h3>
+                <ul class="list-disc pl-6">
+                    <li class="mb-2">Developers</li>
+                    <li class="mb-2">Designers</li>
+                    <li class="mb-2">Partners & Affiliates</li>
+                    <li class="mb-2">Friends & Supporters</li>
+                    <li class="mb-2">Content Creators</li>
+                    <li class="mb-2">Administrators & Moderators</li>
+                    <li class="mb-2">Users & Beta Testers</li>
+                </ul>
+            </div>            
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-10 animated fadeInUp">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400">&copy; 2024 Team RedFox. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+    // JavaScript to handle dropdown functionality
+    document.addEventListener("DOMContentLoaded", function () {
+        const accountDropdown = document.getElementById("accountDropdown");
+        const accountDropdownItems = document.getElementById("accountDropdownItems");
+
+        accountDropdown.addEventListener("click", function () {
+            accountDropdownItems.classList.toggle("hidden");
+        });
+
+        // Hide dropdown when clicking outside
+        window.addEventListener("click", function (event) {
+            if (!accountDropdown.contains(event.target)) {
+                accountDropdownItems.classList.add("hidden");
+            }
+        });
+    });
+</script>
+
+</html>
