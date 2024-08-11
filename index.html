@@ -1,39 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Redirect to Welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-color: #121212;
-            color: #fefefe;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif; /* Optional: Set a font-family */
-        }
-
-        p {
-            margin-top: 20px; /* Optional: Add some space above the paragraph */
-        }
-
-        a {
-            color: #fefefe;
+            font-family: 'Open Sans', sans-serif;
         }
     </style>
     <script>
         // Redirect function
         function redirectToWelcome() {
-            window.location.href = "/welcome/";
+            window.location.href = "https://www.redfox-studios.org/home/";
         }
 
         // Automatically redirect after the page loads
-        window.onload = function() {
-            redirectToWelcome();
+        window.onload = function () {
+            setTimeout(redirectToWelcome, 10);
         };
     </script>
 </head>
-<body>
-    <!-- Optionally, you can add a message or content for users who have JavaScript disabled -->
-    <p>If you are not redirected, please <a href="/welcome/">click here</a>.</p>
+<body class="bg-neutral-800 h-screen flex justify-center items-center">
+    <div class="text-center">
+        <h1 class="text-2xl font-bold mb-2 text-neutral-300">Redirecting you to the home page...</h1>
+        <h2 class="text-lg text-neutral-400">If you are not redirected, please <a class="text-blue-300 underline hover:text-blue-400" href="https://www.redfox-studios.org/home/">click here</a>.</h2>
+    </div>
 </body>
 </html>

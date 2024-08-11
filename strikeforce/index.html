@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect to Welcome</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fefefe;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Optional: Set a font-family */
+        }
+
+        p {
+            margin-top: 20px; /* Optional: Add some space above the paragraph */
+        }
+
+        a {
+            color: #fefefe;
+        }
+    </style>
+    <script>
+        // Redirect function
+        function redirectToWelcome() {
+            window.location.href = "./home/";
+        }
+
+        // Automatically redirect after the page loads
+        window.onload = function() {
+            redirectToWelcome();
+        };
+    </script>
+</head>
+<body>
+    <!-- Optionally, you can add a message or content for users who have JavaScript disabled -->
+    <p>If you are not redirected, please <a href="./home/">click here</a>.</p>
+</body>
+</html>

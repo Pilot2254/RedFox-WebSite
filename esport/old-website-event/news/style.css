@@ -1,0 +1,161 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #222;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	background-color: #970000;
+	box-shadow: 10px 5px #00000079;
+}
+
+
+.logo {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	background-image: url('logo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	text-indent: -9999px; /* hides the text "RedFox" that is placed inside the div */
+	border-radius: 50%; /* add this line to create rounded corners */
+	animation: pop-in 1s ease forwards;
+}
+
+.logo:hover {
+	cursor: not-allowed	;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	animation: pop-in 0.5s ease forwards;
+}
+
+nav a {
+	color: #ffe2e2;
+	text-decoration: none;
+	margin-left: 20px;
+	font-weight: bold;
+	font-size: 18px;
+	animation: pop-in 1s ease forwards;
+	text-shadow: 2px 2px #000;
+}
+
+nav a:hover {
+	color: #ffffff00;
+	text-shadow: 1px 1px #ffe2e2;
+}
+
+.banner {
+	background-image: url('banner.jpg');
+	background-position: center;
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5px;
+	animation: pop-in 0.5s ease forwards;
+}
+
+.banner h1 {
+	font-size: 72px;
+	font-weight: bold;
+	text-align: center;
+	text-shadow: 2px 2px #000;
+	color: #e00202;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+    animation: pop-in 0.5s ease forwards;
+}
+
+.banner2 {
+	color: #e00202 ;
+}
+
+.section {
+	padding: 0px;
+	text-align: center;
+	margin-top: -100px; /* Adjust this value to make it higher */
+	opacity: 0;
+    animation: pop-in 0.5s ease forwards;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+
+.section h2 {
+	font-size: 36px;
+	font-weight: bold;
+	margin: 0;
+	padding: 5px;
+	opacity: 0;
+    animation: pop-in 0.5s ease forwards;
+}
+
+.section p {
+	font-size: 18px;
+	line-height: 1.5;
+	margin-top: 20px;
+	opacity: 0;
+    animation: pop-in 0.5s ease forwards;
+}
+
+.button {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #af0000;
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+	border-radius: 5px;
+	margin-top: 20px;
+	transition: background-color 0.3s ease-in-out;
+	opacity: 0;
+    animation: pop-in 1.5s ease forwards;
+	border: 2px solid #af0000;	
+}
+
+.button:hover {
+	background-color: #ff000000;
+	color: #af0000;
+	border: 2px solid #af0000;
+}
+
+footer {
+	background-color: #333;
+	padding: 20px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	margin-top: 175px;
+	cursor: help;
+}
+
+h1 {
+    opacity: 0;
+    animation: pop-in 0.5s ease forwards;
+}
+
+.hr {
+	border-color: #d80000;
+}
+
+@keyframes pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
