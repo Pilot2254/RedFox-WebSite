@@ -1,0 +1,80 @@
+/* Scrollbar Track */
+::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #535353;
+    border-radius: 10px;
+    border: 3px solid #292929;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+    cursor: grab;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #292929;
+  }
+  
+  /* Track on hover */
+  ::-webkit-scrollbar-track:hover {
+    background: #292929;
+  }
+  
+  /* Handle when scrolling */
+  ::-webkit-scrollbar-thumb:active {
+    background: #666666;
+    cursor: grabbing;
+  }
+
+/* ! IGNORE THE CODE ABOVE ! */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f0f0f;
+    font-family: 'Source Code Pro', monospace;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#console {
+    width: 90%;
+    height: 90%;
+    border: 1px solid #333;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    background-color: #1e1e1e;
+}
+
+#output {
+    white-space: pre-wrap;
+}
+
+#input-line {
+    display: flex;
+}
+
+.prompt {
+    margin-right: 10px;
+}
+
+#input {
+    background: none;
+    border: none;
+    color: white;
+    flex-grow: 1;
+    font-size: 16px;
+    outline: none;
+    font-family: 'Source Code Pro', monospace;
+}
