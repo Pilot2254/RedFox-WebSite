@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Editor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+    <style>
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #4B5563;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity .2s;
+            border-radius: 9999px;
+        }
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #10B981;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #10B981;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-neutral-900 text-neutral-100 font-montserrat">
+    <div class="flex h-screen">
+        <!-- Left Panel -->
+        <div class="w-80 bg-neutral-800 p-6 overflow-y-auto">
+            <h1 class="text-2xl font-bold mb-6">Image Editor</h1>
+            
+            <!-- Basic Adjustments -->
+            <h2 class="text-lg font-semibold mb-4">Basic Adjustments</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="brightness" class="block text-sm font-medium mb-2">Brightness</label>
+                    <input type="range" id="brightness" min="0" max="200" value="100" class="w-full">
+                </div>
+                <div>
+                    <label for="contrast" class="block text-sm font-medium mb-2">Contrast</label>
+                    <input type="range" id="contrast" min="0" max="200" value="100" class="w-full">
+                </div>
+                <div>
+                    <label for="saturation" class="block text-sm font-medium mb-2">Saturation</label>
+                    <input type="range" id="saturation" min="0" max="200" value="100" class="w-full">
+                </div>
+            </div>
+            
+            <!-- Color Adjustments -->
+            <h2 class="text-lg font-semibold mt-8 mb-4">Color Adjustments</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="hue-rotate" class="block text-sm font-medium mb-2">Hue Rotate</label>
+                    <input type="range" id="hue-rotate" min="0" max="360" value="0" class="w-full">
+                </div>
+                <div>
+                    <label for="sepia" class="block text-sm font-medium mb-2">Sepia</label>
+                    <input type="range" id="sepia" min="0" max="100" value="0" class="w-full">
+                </div>
+                <div>
+                    <label for="invert" class="block text-sm font-medium mb-2">Invert</label>
+                    <input type="range" id="invert" min="0" max="100" value="0" class="w-full">
+                </div>
+            </div>
+            
+            <!-- Effects -->
+            <h2 class="text-lg font-semibold mt-8 mb-4">Effects</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="blur" class="block text-sm font-medium mb-2">Blur</label>
+                    <input type="range" id="blur" min="0" max="10" value="0" step="0.1" class="w-full">
+                </div>
+                <div>
+                    <label for="grayscale" class="block text-sm font-medium mb-2">Grayscale</label>
+                    <input type="range" id="grayscale" min="0" max="100" value="0" class="w-full">
+                </div>
+                <div>
+                    <label for="opacity" class="block text-sm font-medium mb-2">Opacity</label>
+                    <input type="range" id="opacity" min="0" max="100" value="100" class="w-full">
+                </div>
+            </div>
+            
+            <!-- Transformations -->
+            <h2 class="text-lg font-semibold mt-8 mb-4">Transformations</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Rotate</label>
+                    <div class="flex justify-between">
+                        <button id="rotate-left" class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-undo"></i> -90°
+                        </button>
+                        <button id="rotate-right" class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-redo"></i> +90°
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Flip</label>
+                    <div class="flex justify-between">
+                        <button id="flip-horizontal" class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-arrows-alt-h"></i> Horizontal
+                        </button>
+                        <button id="flip-vertical" class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300">
+                            <i class="fas fa-arrows-alt-v"></i> Vertical
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Presets -->
+            <h2 class="text-lg font-semibold mt-8 mb-4">Presets</h2>
+            <div class="grid grid-cols-2 gap-2">
+                <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300" onclick="applyPreset('vintage')">Vintage</button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300" onclick="applyPreset('blackAndWhite')">B&W</button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300" onclick="applyPreset('warm')">Warm</button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300" onclick="applyPreset('cool')">Cool</button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300" onclick="applyPreset('highContrast')">High Contrast</button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 text-white font-medium py-2 px-4 rounded transition duration-300" onclick="applyPreset('sepia')">Sepia</button>
+            </div>
+            
+            <!-- Reset Button -->
+            <button id="reset" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 mt-8">
+                Reset All Filters
+            </button>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex-1 p-6 flex flex-col items-center justify-center bg-neutral-950">
+            <div class="relative group">
+                <img id="image" src="https://images.unsplash.com/photo-1504177847824-d075f5706770?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Editable Image" class="max-w-full max-h-[80vh] rounded-lg shadow-lg transition-transform duration-300 ease-in-out">
+                <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <label for="file-upload" class="cursor-pointer bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                        <i class="fas fa-upload mr-2"></i>Upload Image
+                    </label>
+                    <input id="file-upload" type="file" accept="image/*" class="hidden">
+                </div>
+            </div>
+            <div class="mt-6 flex space-x-4">
+                <button id="download" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                    <i class="fas fa-download mr-2"></i>Download
+                </button>
+                <button id="share" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+                    <i class="fas fa-share-alt mr-2"></i>Share
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const image = document.getElementById('image');
+        const fileUpload = document.getElementById('file-upload');
+        const resetButton = document.getElementById('reset');
+        const downloadButton = document.getElementById('download');
+        const shareButton = document.getElementById('share');
+        const sliders = document.querySelectorAll('input[type="range"]');
+        const rotateLeftButton = document.getElementById('rotate-left');
+        const rotateRightButton = document.getElementById('rotate-right');
+        const flipHorizontalButton = document.getElementById('flip-horizontal');
+        const flipVerticalButton = document.getElementById('flip-vertical');
+
+        let rotation = 0;
+        let flipH = 1;
+        let flipV = 1;
+
+        function applyFilters() {
+            const brightness = document.getElementById('brightness').value;
+            const contrast = document.getElementById('contrast').value;
+            const saturation = document.getElementById('saturation').value;
+            const hueRotate = document.getElementById('hue-rotate').value;
+            const blur = document.getElementById('blur').value;
+            const sepia = document.getElementById('sepia').value;
+            const invert = document.getElementById('invert').value;
+            const grayscale = document.getElementById('grayscale').value;
+            const opacity = document.getElementById('opacity').value;
+
+            image.style.filter = `
+                brightness(${brightness}%)
+                contrast(${contrast}%)
+                saturate(${saturation}%)
+                hue-rotate(${hueRotate}deg)
+                blur(${blur}px)
+                sepia(${sepia}%)
+                invert(${invert}%)
+                grayscale(${grayscale}%)
+                opacity(${opacity}%)
+            `;
+            image.style.transform = `rotate(${rotation}deg) scale(${flipH}, ${flipV})`;
+        }
+
+        sliders.forEach(slider => {
+            slider.addEventListener('input', applyFilters);
+        });
+
+        resetButton.addEventListener('click', () => {
+            sliders.forEach(slider => {
+                slider.value = slider.getAttribute('value');
+            });
+            rotation = 0;
+            flipH = 1;
+            flipV = 1;
+            applyFilters();
+        });
+
+        rotateLeftButton.addEventListener('click', () => {
+            rotation = (rotation - 90) % 360;
+            applyFilters();
+        });
+
+        rotateRightButton.addEventListener('click', () => {
+            rotation = (rotation + 90) % 360;
+            applyFilters();
+        });
+
+        flipHorizontalButton.addEventListener('click', () => {
+            flipH *= -1;
+            applyFilters();
+        });
+
+        flipVerticalButton.addEventListener('click', () => {
+            flipV *= -1;
+            applyFilters();
+        });
+
+        fileUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    image.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        downloadButton.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = image.naturalWidth;
+            canvas.height = image.naturalHeight;
+            ctx.filter = image.style.filter;
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate(rotation * Math.PI / 180);
+            ctx.scale(flipH, flipV);
+            ctx.drawImage(image, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+            
+            const link = document.createElement('a');
+            link.download = 'rfs-edited_image.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+
+        shareButton.addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'My Edited Image',
+                    text: 'Check out this image I edited!',
+                    url: image.src
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(console.error);
+            } else {
+                alert('Web Share API is not supported in your browser. You can manually share the downloaded image.');
+            }
+        });
+
+        function applyPreset(preset) {
+            switch(preset) {
+                case 'vintage':
+                    document.getElementById('brightness').value = 110;
+                    document.getElementById('contrast').value = 120;
+                    document.getElementById('saturation').value = 80;
+                    document.getElementById('sepia').value = 30;
+                    break;
+                case 'blackAndWhite':
+                    document.getElementById('brightness').value = 100;
+                    document.getElementById('contrast').value = 120;
+                    document.getElementById('grayscale').value = 100;
+                    break;
+                case 'warm':
+                    document.getElementById('brightness').value = 105;
+                    document.getElementById('saturation').value = 110;
+                    document.getElementById('hue-rotate').value = 10;
+                    break;
+                case 'cool':
+                    document.getElementById('brightness').value = 95;
+                    document.getElementById('saturation').value = 90;
+                    document.getElementById('hue-rotate').value = 180;
+                    break;
+                case 'highContrast':
+                    document.getElementById('brightness').value = 110;
+                    document.getElementById('contrast').value = 150;
+                    document.getElementById('saturation').value = 120;
+                    break;
+                case 'sepia':
+                    document.getElementById('sepia').value = 100;
+                    document.getElementById('saturation').value = 90;
+                    document.getElementById('brightness').value = 95;
+                    break;
+            }
+            applyFilters();
+        }
+    </script>
+</body>
+</html>

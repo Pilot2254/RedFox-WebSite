@@ -1,173 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oxygen - Home</title>
+    <title>OxyHub - Connect and Share</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="../images/default-no-bg.png">
+    <script defer src="/assets/js/load-content.js"></script>
 </head>
-
-<body class="bg-gray-900 text-gray-100 font-sans">
-
-    <!-- Navigation -->
-    <nav class="bg-gray-800 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center">
-                <img src="../images/default-no-bg.png" alt="Logo" class="h-10">
-                <span class="text-lg text-white font-semibold ml-2">OxyHub</span>
+<body class="bg-neutral-900 text-neutral-100 font-sans min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center justify-between py-4 border-b border-neutral-800">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-3xl font-bold text-blue-500">OxyHub</h1>
+                <div class="hidden sm:flex space-x-6">
+                    <a href="#" class="text-neutral-300 hover:text-blue-500 transition duration-200">Home</a>
+                    <a href="#" class="text-neutral-300 hover:text-blue-500 transition duration-200">Explore</a>
+                    <a href="#" class="text-neutral-300 hover:text-blue-500 transition duration-200">Notifications</a>
+                </div>
             </div>
-            <div>
-                <a href="#" class="text-gray-300 hover:text-white px-3 py-2">Home</a>
-                <a href="#" class="text-gray-300 hover:text-white px-3 py-2">Chat</a>
-                <a href="#" class="text-gray-300 hover:text-white px-3 py-2">Explore</a>
-                <a href="#" class="text-gray-300 hover:text-white px-3 py-2">Profile</a>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search OxyHub" class="bg-neutral-800 text-neutral-100 rounded-full pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-64">
+                    <i class="fas fa-search absolute left-3 top-3 text-neutral-400"></i>
+                </div>
+                <button class="bg-blue-500 text-white rounded-full px-6 py-2 hover:bg-blue-600 transition duration-200 font-semibold">Post</button>
+            </div>
+        </nav>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-2 space-y-8">
+                <div class="bg-neutral-800 rounded-xl p-6 space-y-4 shadow-lg">
+                    <div class="flex items-center space-x-4">
+                        <img src="../images/user.png" alt="User Avatar" class="rounded-full w-12 h-12">
+                        <input type="text" placeholder="What's on your mind?" class="bg-neutral-700 text-neutral-100 rounded-full px-6 py-3 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-6 text-neutral-400">
+                            <button class="hover:text-blue-500 transition duration-200"><i class="fas fa-image text-lg"></i> Image</button>
+                            <button class="hover:text-blue-500 transition duration-200"><i class="fas fa-poll text-lg"></i> Poll</button>
+                            <button class="hover:text-blue-500 transition duration-200"><i class="fas fa-smile text-lg"></i> Emoji</button>
+                        </div>
+                        <button class="bg-blue-500 text-white rounded-full px-6 py-2 hover:bg-blue-600 transition duration-200 font-semibold">Post</button>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-800 rounded-xl p-6 space-y-4 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <img src="../images/user.png" alt="User Avatar" class="rounded-full w-12 h-12">
+                            <div>
+                                <h3 class="font-semibold text-lg">John Doe</h3>
+                                <p class="text-neutral-400">@johndoe · 2h</p>
+                            </div>
+                        </div>
+                        <button class="text-neutral-400 hover:text-neutral-100 transition duration-200"><i class="fas fa-ellipsis-h"></i></button>
+                    </div>
+                    <p class="text-lg">Just finished a great coding session! The future of web development is looking bright. 🚀 #webdev #javascript</p>
+                    <img src="../images/coding-session.jpg" alt="Coding setup" class="rounded-xl w-full">
+                    <div class="flex justify-between text-neutral-400">
+                        <button class="hover:text-blue-500 transition duration-200 flex items-center space-x-2">
+                            <i class="far fa-comment"></i>
+                            <span>25</span>
+                        </button>
+                        <button class="hover:text-green-500 transition duration-200 flex items-center space-x-2">
+                            <i class="fas fa-retweet"></i>
+                            <span>64</span>
+                        </button>
+                        <button class="hover:text-red-500 transition duration-200 flex items-center space-x-2">
+                            <i class="far fa-heart"></i>
+                            <span>152</span>
+                        </button>
+                        <button class="hover:text-blue-500 transition duration-200">
+                            <i class="far fa-share-square"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-800 rounded-xl p-6 space-y-4 shadow-lg">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <img src="../images/user.png" alt="User Avatar" class="rounded-full w-12 h-12">
+                            <div>
+                                <h3 class="font-semibold text-lg">Jane Smith</h3>
+                                <p class="text-neutral-400">@janesmith · 4h</p>
+                            </div>
+                        </div>
+                        <button class="text-neutral-400 hover:text-neutral-100 transition duration-200"><i class="fas fa-ellipsis-h"></i></button>
+                    </div>
+                    <p class="text-lg">Just witnessed the most breathtaking sunset ever! Nature never fails to amaze me. 🌅 #NatureLover #SunsetMagic</p>
+                    <img src="../images/sunset.jpg" alt="Beautiful sunset" class="rounded-xl w-full">
+                    <div class="flex justify-between text-neutral-400">
+                        <button class="hover:text-blue-500 transition duration-200 flex items-center space-x-2">
+                            <i class="far fa-comment"></i>
+                            <span>18</span>
+                        </button>
+                        <button class="hover:text-green-500 transition duration-200 flex items-center space-x-2">
+                            <i class="fas fa-retweet"></i>
+                            <span>42</span>
+                        </button>
+                        <button class="hover:text-red-500 transition duration-200 flex items-center space-x-2">
+                            <i class="far fa-heart"></i>
+                            <span>215</span>
+                        </button>
+                        <button class="hover:text-blue-500 transition duration-200">
+                            <i class="far fa-share-square"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-neutral-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="font-semibold text-xl mb-4">Trending Topics</h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="text-blue-500 hover:underline text-lg">#WebDevelopment</a>
+                            <p class="text-neutral-400">3.2K posts</p>
+                        </li>
+                        <li>
+                            <a href="#" class="text-blue-500 hover:underline text-lg">#ArtificialIntelligence</a>
+                            <p class="text-neutral-400">2.8K posts</p>
+                        </li>
+                        <li>
+                            <a href="#" class="text-blue-500 hover:underline text-lg">#SpaceExploration</a>
+                            <p class="text-neutral-400">1.5K posts</p>
+                        </li>
+                        <li>
+                            <a href="#" class="text-blue-500 hover:underline text-lg">#ClimateAction</a>
+                            <p class="text-neutral-400">4.7K posts</p>
+                        </li>
+                        <li>
+                            <a href="#" class="text-blue-500 hover:underline text-lg">#QuantumComputing</a>
+                            <p class="text-neutral-400">956 posts</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-neutral-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="font-semibold text-xl mb-4">Who to Follow</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <img src="../images/user.png" alt="User Avatar" class="rounded-full w-12 h-12">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Tech Enthusiast</h3>
+                                    <p class="text-neutral-400">@techenthusiast</p>
+                                </div>
+                            </div>
+                            <button class="bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition duration-200 font-semibold">Follow</button>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <img src="../images/user.png" alt="User Avatar" class="rounded-full w-12 h-12">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Design Guru</h3>
+                                    <p class="text-neutral-400">@designguru</p>
+                                </div>
+                            </div>
+                            <button class="bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition duration-200 font-semibold">Follow</button>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <img src="../images/user.png" alt="User Avatar" class="rounded-full w-12 h-12">
+                                <div>
+                                    <h3 class="font-semibold text-lg">AI Researcher</h3>
+                                    <p class="text-neutral-400">@airesearcher</p>
+                                </div>
+                            </div>
+                            <button class="bg-blue-500 text-white rounded-full px-4 py-2 text-sm hover:bg-blue-600 transition duration-200 font-semibold">Follow</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container mx-auto flex flex-wrap justify-center mt-8">
-
-        <!-- Left Panel -->
-        <div class="w-full lg:w-1/4 bg-gray-800 text-white p-4 rounded-lg shadow-md">
-            <h2 class="text-lg font-semibold mb-4">Topics</h2>
-            <ul class="divide-y divide-gray-700">
-                <li class="mb-2">
-                    <button class="flex items-center justify-between w-full focus:outline-none hover:text-blue-500">
-                        <span class="text-base">Business</span>
-                    </button>
-                    <ul class="pl-4 pt-2 hidden">
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-gray-300">Subtopic 1</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-gray-300">Subtopic 2</a></li>
-                    </ul>
-                </li>
-                <li class="mb-2">
-                    <button class="flex items-center justify-between w-full focus:outline-none hover:text-blue-500">
-                        <span class="text-base">Art</span>
-                    </button>
-                    <ul class="pl-4 pt-2 hidden">
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-gray-300">Subtopic 1</a></li>
-                        <li><a href="#" class="text-sm text-gray-400 hover:text-gray-300">Subtopic 2</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Middle Content -->
-        <div class="w-full lg:w-1/2 p-4 rounded-lg">
-            <!-- Hero Section -->
-            <section class="bg-gray-800 py-10 mb-4 rounded-lg">
-                <div class="container mx-auto">
-                    <div class="flex justify-between items-center px-4">
-                        <h1 class="text-3xl font-semibold text-white">Welcome to OxyHub</h1>
-                        <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg">Create Post</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Content Section -->
-            <section class="py-4">
-                <!-- Post 1 -->
-                <div class="bg-gray-800 p-6 rounded-lg mb-6 shadow-md">
-                    <h2 class="text-xl text-white font-semibold mb-2">Post Title 1</h2>
-                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <div class="flex items-center mt-4">
-                        <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                        <p class="text-gray-400 ml-2">Posted by <span class="font-semibold">username1</span></p>
-                    </div>
-                </div>
-                <!-- Post 2 -->
-                <div class="bg-gray-800 p-6 rounded-lg mb-6 shadow-md">
-                    <h2 class="text-xl text-white font-semibold mb-2">Post Title 2</h2>
-                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <div class="flex items-center mt-4">
-                        <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                        <p class="text-gray-400 ml-2">Posted by <span class="font-semibold">username2</span></p>
-                    </div>
-                </div>
-                <!-- Post 3 -->
-                <div class="bg-gray-800 p-6 rounded-lg mb-6 shadow-md">
-                    <h2 class="text-xl text-white font-semibold mb-2">Post Title 3</h2>
-                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <div class="flex items-center mt-4">
-                        <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                        <p class="text-gray-400 ml-2">Posted by <span class="font-semibold">username3</span></p>
-                    </div>
-                </div>
-                <!-- Post 4 -->
-                <div class="bg-gray-800 p-6 rounded-lg mb-6 shadow-md">
-                    <h2 class="text-xl text-white font-semibold mb-2">Post Title 4</h2>
-                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <div class="flex items-center mt-4">
-                        <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                        <p class="text-gray-400 ml-2">Posted by <span class="font-semibold">username4</span></p>
-                    </div>
-                </div>
-                <!-- Post 5 -->
-                <div class="bg-gray-800 p-6 rounded-lg mb-6 shadow-md">
-                    <h2 class="text-xl text-white font-semibold mb-2">Post Title 5</h2>
-                    <p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                    <div class="flex items-center mt-4">
-                        <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                        <p class="text-gray-400 ml-2">Posted by <span class="font-semibold">username5</span></p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Right Panel -->
-        <div class="w-full lg:w-1/4 bg-gray-800 text-white p-4 rounded-lg">
-            <h2 class="text-xl font-semibold mb-4">Popular Profiles</h2>
-            <ul>
-                <li class="mb-2 flex items-center">
-                    <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                    <a href="#" class="text-blue-500 hover:text-blue-400 ml-2">Pilot2254</a>
-                </li>
-                <li class="mb-2 flex items-center">
-                    <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                    <a href="#" class="text-blue-500 hover:text-blue-400 ml-2">username1</a>
-                </li>
-                <li class="mb-2 flex items-center">
-                    <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                    <a href="#" class="text-blue-500 hover:text-blue-400 ml-2">username2</a>
-                </li>
-                <li class="mb-2 flex items-center">
-                    <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                    <a href="#" class="text-blue-500 hover:text-blue-400 ml-2">username3</a>
-                </li>
-                <li class="mb-2 flex items-center">
-                    <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                    <a href="#" class="text-blue-500 hover:text-blue-400 ml-2">username4</a>
-                </li>
-                <li class="mb-2 flex items-center">
-                    <img src="../images/user-icon.png" alt="User Icon" class="h-8 w-8 rounded-full">
-                    <a href="#" class="text-blue-500 hover:text-blue-400 ml-2">username5</a>
-                </li>
-                <!-- More Profiles (max 10)-->
-            </ul>
-        </div>
-
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-10 mt-10">
-        <div class="container mx-auto text-center">
-            <p class="text-gray-400">&copy; 2024 Oxygen. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // JavaScript for Dropdown functionality
-        document.querySelectorAll('.bg-gray-800 li button').forEach(item => {
-            item.addEventListener('click', event => {
-                const submenu = item.nextElementSibling;
-                submenu.classList.toggle('hidden');
-            });
-        });
-    </script>
-
 </body>
-
 </html>

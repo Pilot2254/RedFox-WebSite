@@ -1,39 +1,216 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <title>Redirect to Welcome</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrikeForce - Intense FPS Action</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
     <style>
-        body {
-            background-color: #121212;
-            color: #fefefe;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif; /* Optional: Set a font-family */
-        }
-
-        p {
-            margin-top: 20px; /* Optional: Add some space above the paragraph */
-        }
-
-        a {
-            color: #fefefe;
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
         }
     </style>
-    <script>
-        // Redirect function
-        function redirectToWelcome() {
-            window.location.href = "./home/";
-        }
-
-        // Automatically redirect after the page loads
-        window.onload = function() {
-            redirectToWelcome();
-        };
-    </script>
 </head>
-<body>
-    <!-- Optionally, you can add a message or content for users who have JavaScript disabled -->
-    <p>If you are not redirected, please <a href="./home/">click here</a>.</p>
+<body class="bg-neutral-900 text-neutral-200 font-sans">
+    <header class="fixed w-full z-50 bg-neutral-900 bg-opacity-90 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-strike-red font-bold text-2xl">
+                <img src="/assets/images/strikeforce.svg" alt="StrikeForce Logo">
+            </a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#about" class="hover:text-strike-red transition-colors">About</a></li>
+                    <li><a href="#features" class="hover:text-strike-red transition-colors">Features</a></li>
+                    <li><a href="#agents" class="hover:text-strike-red transition-colors">Agents</a></li>
+                    <li><a href="#download" class="hover:text-strike-red transition-colors">Download</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="welcome" class="relative h-screen flex items-center justify-center">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Background" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-70"></div>
+            </div>
+            <div class="relative z-10 text-center">
+                <h1 class="text-6xl font-bold mb-4 text-shadow">Welcome to StrikeForce</h1>
+                <p class="text-xl mb-8 text-shadow">Experience intense FPS action like never before</p>
+                <a href="#download" class="bg-strike-red text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors">Play Now</a>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-neutral-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-8 text-center">About StrikeForce</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto">
+                    StrikeForce is an adrenaline-pumping FPS game that combines the best elements of tactical shooters like CS2 and the fast-paced action of Warface: Clutch. Engage in intense firefights, execute precise strategies, and dominate the battlefield with your team.
+                </p>
+            </div>
+        </section>
+
+        <section id="features" class="py-20 bg-neutral-900">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center">Game Features</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto mb-16">
+                    StrikeForce offers a rich, immersive gameplay experience with a variety of features including diverse agent roles, dynamic battlefields, and engaging game modes. Dive into the action and discover the depth of strategic combat that awaits you.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <i class="fas fa-crosshairs text-4xl text-strike-red mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-2">Precision Gunplay</h3>
+                        <p>Experience realistic weapon mechanics and satisfying gunplay</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-users text-4xl text-strike-red mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-2">Team-based Tactics</h3>
+                        <p>Coordinate with your squad to outmaneuver and outgun your opponents</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-chart-line text-4xl text-strike-red mb-4"></i>
+                        <h3 class="text-2xl font-semibold mb-2">Skill Progression</h3>
+                        <p>Unlock new abilities and customize your loadout as you level up</p>
+                    </div>
+                </div>
+                <div class="space-y-12">
+                    <div class="bg-neutral-700 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Agents" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-4">Elite Agents</h3>
+                            <p class="mb-4">
+                                Choose from five unique agents, each bringing their own set of skills and tactical advantages to the battlefield:
+                            </p>
+                            <ul class="list-disc list-inside mb-4">
+                                <li>Assault: Front-line combat specialist</li>
+                                <li>Engineer: Tech expert and fortification master</li>
+                                <li>Sniper: Long-range precision eliminator</li>
+                                <li>Medic: Vital support and healing expert</li>
+                                <li>A.T.A.I.: Advanced AI with unparalleled tactical analysis</li>
+                            </ul>
+                            <p>
+                                Master each agent's abilities to turn the tide of battle and secure victory for your team.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-700 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Battlefields" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-4">Dynamic Battlefields</h3>
+                            <p class="mb-4">
+                                Engage in intense combat across a variety of meticulously designed maps, each offering unique strategic challenges:
+                            </p>
+                            <ul class="list-disc list-inside mb-4">
+                                <li>Urban Warfare: Navigate tight corners and vertical combat in city environments</li>
+                                <li>Desert Storm: Master long-range engagements in open terrain</li>
+                                <li>Arctic Base: Adapt to harsh conditions in a secretive polar facility</li>
+                                <li>Jungle Ops: Use dense foliage for stealth and ambush tactics</li>
+                            </ul>
+                            <p>
+                                Every map is crafted to test your skills and teamwork, ensuring no two battles feel the same.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-neutral-700 rounded-lg overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Game Modes" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold mb-4">Thrilling Game Modes</h3>
+                            <p class="mb-4">
+                                StrikeForce offers a variety of game modes to suit every playstyle:
+                            </p>
+                            <h4 class="text-xl font-semibold mb-2">PvP Modes</h4>
+                            <ul class="list-disc list-inside mb-4">
+                                <li>Team Deathmatch (TD): Classic team-based combat</li>
+                                <li>Free For All (FFA): Every agent for themselves in all-out warfare</li>
+                                <li>Capture: Secure and hold objectives to score points</li>
+                            </ul>
+                            <p class="mb-4">
+                                PvP matches are intense 15-minute battles, perfect for quick, action-packed gaming sessions.
+                            </p>
+                            <h4 class="text-xl font-semibold mb-2">PvE Mode</h4>
+                            <p class="mb-4">
+                                Experience the thrill of cooperative gameplay in our story-driven PvE missions:
+                            </p>
+                            <ul class="list-disc list-inside mb-4">
+                                <li>Solo or team up with up to 5 players</li>
+                                <li>Face off against advanced AI enemies</li>
+                                <li>Progress through challenging rooms and scenarios</li>
+                                <li>Earn exclusive rewards upon completion</li>
+                            </ul>
+                            <p>
+                                PvE missions typically last 20-30 minutes, offering a deeper, more immersive StrikeForce experience.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="agents" class="py-20 bg-neutral-800">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold mb-12 text-center">Elite Agents</h2>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div class="w-64 bg-neutral-900 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Assault" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Assault</h3>
+                            <p>Front-line fighter with heavy firepower and tactical abilities</p>
+                        </div>
+                    </div>
+                    <div class="w-64 bg-neutral-900 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Engineer" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Engineer</h3>
+                            <p>Tech specialist capable of deploying turrets and repairing equipment</p>
+                        </div>
+                    </div>
+                    <div class="w-64 bg-neutral-900 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sniper" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Sniper</h3>
+                            <p>Long-range specialist with precision shooting and stealth abilities</p>
+                        </div>
+                    </div>
+                    <div class="w-64 bg-neutral-900 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Medic" class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Medic</h3>
+                            <p>Support specialist with healing capabilities and defensive buffs</p>
+                        </div>
+                    </div>
+                    <div class="w-64 bg-neutral-900 rounded-lg overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="A.T.A.I." class="w-full h-64 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">A.T.A.I.</h3>
+                            <p>Army Trained Artificial Intelligence with advanced tactical analysis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="py-20 bg-neutral-900">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold mb-6">Download StrikeForce Now</h2>
+                    <p class="text-xl mb-8">Join the battle and experience intense FPS action. Download StrikeForce on Steam and start your mission today!</p>
+                    <a href="https://store.steampowered.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 bg-red-500 text-white text-xl font-bold rounded-full hover:bg-red-600 transition-colors duration-300">
+                        <i class="fab fa-steam-symbol mr-3 text-2xl"></i>
+                        Download on Steam
+                    </a>
+                    <p class="mt-6 text-sm text-neutral-400">Currently Available only for Windows</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-neutral-800 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; RedFox Studios. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

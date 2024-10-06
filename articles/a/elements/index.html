@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Article</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+</head>
+<body class="bg-neutral-900 text-neutral-200">
+    <header class="sticky top-0 bg-neutral-800 shadow-md z-10">
+        <div class="container mx-auto px-4 py-4 max-w-3xl flex justify-between items-center">
+            <h1 class="text-2xl font-bold">RedFox Studios</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li>
+                        <a href="/articles/" class="text-neutral-400 hover:text-teal-300 transition-colors border-b border-neutral-700 hover:border-teal-300 pb-1">
+                            <i class="fas fa-arrow-left mr-2"></i>Back to Articles
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+        <article class="space-y-6">
+            <header class="mb-8">
+                <h1 class="text-4xl font-bold mb-2">Example Article</h1>
+                <p class="text-neutral-400">Last updated on <time datetime="2024-09-19">2024-09-19</time></p>
+            </header>
+
+            <p class="text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+
+            <h2 class="text-3xl font-semibold mt-8 mb-4">Section 1: Lists and Text Styles</h2>
+
+            <p>Here's an example of an unordered list:</p>
+            <ul class="list-disc list-inside space-y-1 mt-1 m-4">
+                <li>First item in the list</li>
+                <li>Second item with <strong class="font-bold">bold text</strong></li>
+                <li>Third item with <em class="italic">italic text</em></li>
+                <li>Fourth item with <span class="underline">underlined text</span></li>
+                <li>Fifth item with <a class="text-teal-300 hover:underline" href="#" target="_blank">link</a></li>
+            </ul>
+
+            <p>And here's an ordered list:</p>
+            <ol class="list-decimal list-inside space-y-4 mt-1 m-4">
+                <li>First numbered item</li>
+                <li>Second numbered item</li>
+                <li>Third numbered item</li>
+            </ol>
+
+            <h3 class="text-2xl font-semibold mt-6 mb-3">Subsection: Text Highlights</h3>
+
+            <p>
+                You can use <mark class="bg-yellow-300 text-neutral-900 px-1 rounded">highlighted text</mark> to emphasize important points. Or you can use <span class="text-teal-300">colored text</span> for different purposes.
+            </p>
+
+            <h2 class="text-3xl font-semibold mt-8 mb-4">Section 2: Code Styles</h2>
+
+            <p>Here's an example of inline code: <code class="bg-neutral-800 px-1 rounded">const greeting = "Hello, World!";</code></p>
+            
+            <p>And a block of code:</p>
+            <pre class="bg-neutral-800 p-4 rounded-lg overflow-x-auto">
+<code class="language-javascript">
+function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10)); // Output: 55
+</code>
+            </pre>
+
+            <h2 class="text-3xl font-semibold mt-8 mb-4">Section 3: Quotes and Icons</h2>
+
+            <blockquote class="border-l-4 border-blue-500 pl-4 py-2 italic">
+                "The only way to do great work is to love what you do." - Steve Jobs
+            </blockquote>
+
+            <p class="flex items-center space-x-2">
+                <i class="fas fa-info-circle text-blue-400"></i>
+                <span>This is an informational message using a FontAwesome icon.</span>
+            </p>
+
+            <p class="flex items-center space-x-2">
+                <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                <span>This is a warning message using a FontAwesome icon.</span>
+            </p>
+
+            <h2 class="text-3xl font-semibold mt-8 mb-4">Conclusion</h2>
+
+            <p>
+                In conclusion, this example article demonstrates various HTML elements and styles using Tailwind CSS and custom fonts. You can easily customize and extend this template to create your own articles.
+            </p>
+        </article>
+    </div>
+
+    <footer class="bg-neutral-800 mt-8">
+        <div class="container mx-auto px-4 py-6 text-center text-neutral-400">
+            <p>&copy; RedFox Studios. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

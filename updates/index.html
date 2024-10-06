@@ -1,141 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Updates - RedFox Studios</title>
-    <script src="https://kit.fontawesome.com/76661d0faf.js" crossorigin="anonymous"></script>
+    <title>Updates</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
-    <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/animations">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <style>
-            body {
-            font-family: 'Open Sans', sans-serif;
-        }
-    </style>
+    <script defer src="/assets/js/load-content.js"></script>
 </head>
-<body class="bg-gray-100">
-
-    <!-- Navigation -->
-    <nav class="bg-neutral-700 text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-2xl font-bold">RedFox Studios</div>
-            <div class="flex items-center space-x-4">
-                <a href="../home/">Home</a>
-                <a href="../articles/">Articles</a>
-                <a href="../projects/">Projects</a>
-                <a href="../updates/">Updates</a>
+<body class="bg-neutral-900 text-neutral-200">
+    <header class="sticky top-0 bg-neutral-800 shadow-md z-10">
+        <div class="container mx-auto px-4 py-4 max-w-6xl">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <a href="#" class="text-2xl font-bold text-neutral-100 mb-4 sm:mb-0">RedFox Studios</a>
+                <nav>
+                    <ul class="flex flex-wrap justify-center space-x-6">
+                        <li><a href="/home/" class="hover:text-teal-300 transition-colors">Home</a></li>
+                        <li><a href="/projects/" class="hover:text-teal-300 transition-colors">Projects</a></li>
+                        <li><a href="/articles" class="hover:text-teal-300 transition-colors">Articles</a></li>
+                        <li><a href="/updates/" class="text-teal-300 hover:text-teal-400 transition-colors">Updates</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Updates -->
-    <section id="updates" class="text-neutral-400 bg-gradient-to-b from-neutral-700 to-neutral-900 py-1">
+    <div class="container mx-auto px-4 py-8 max-w-3xl">
+        <h1 class="text-4xl font-bold mb-8">Recent Updates</h1>
 
-        <!-- TEMPLATE:
-        <div class="container mx-auto py-5">
-            <div class="max-w-3xl mx-auto bg-neutral-800 rounded-lg p-8 border-solid border-2 border-neutral-700">
-                <h2 class="text-3xl font-bold mb-4 text-neutral-300"></h2>
-                <p class="mb-4"></p>
-                <p class="mb-4"></p>
-                <ul class="list-disc list-inside">
-                    <p></p>
+        <div class="space-y-8">
+
+            <!--
+            <article class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2"></h2>
+                <p class="text-neutral-400 mb-4">Published on <time datetime=""></time></p>
+                <p>What's New This Update:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
+                    <li></li>
                     <li></li>
                     <li></li>
                     <li></li>
                 </ul>
-            </div>
-        </div>   
-        -->
-
-        <div class="container mx-auto py-5">
-            <div class="max-w-3xl mx-auto bg-neutral-800 rounded-lg p-8 border-solid border-2 border-neutral-700">
-                <h2 class="text-3xl font-bold mb-4 text-neutral-300">Update 2.1.6</h2>
                 <p class="mb-4"></p>
-                
-                <ul class="list-disc list-inside">
+                <p class="mb-4"></p>
+            </article>
+
+            <a class="text-teal-300 hover:underline" href="" target="_blank"></a>
+            -->
+
+            <article class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Update 3.1</h2>
+                <p class="text-neutral-400 mb-4">Published on <time datetime="25-9-2024">25-9-2024</time></p>
+                <p>What's New This Update:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
+                    <li>Changed design of 
+                        <a class="text-teal-300 hover:underline" href="../home/" target="_blank">Home</a>, 
+                        <a class="text-teal-300 hover:underline" href="../projects/" target="_blank">Projects</a>, 
+                        <a class="text-teal-300 hover:underline" href="../updates/" target="_blank">Updates</a> and
+                        <a class="text-teal-300 hover:underline" href="../articles/" target="_blank">Articles</a> pages
+                    </li>
+                    <li>New
+                        <a class="text-teal-300 hover:underline" href="../articles/a/general-tos/" target="_blank">General ToS</a> and
+                        <a class="text-teal-300 hover:underline" href="../articles/a/client-tos/" target="_blank">Client ToS</a>
+                    </li>
+                    <li>Added <a class="text-teal-300 hover:underline" href="../LICENSE" target="_blank">License</a> to articles page.</li>
+                    <li>Expanded our <a class="text-teal-300 hover:underline" href="../articles/a/discord-guide/" target="_blank">Discord Guide</a></li>
+                    <li>Added our <a class="text-teal-300 hover:underline" href="../articles/a/discord-server-rules/" target="_blank">Discord Rules</a> to article page</li>
+                    <li>Disabled printing, saving, inspecting and changing source code</li>
+                    <li>Started using new method for centralizing styles, scripts and other assets</li>
+                    <li>Added support section to homepage with working mail sending</li>
+                    <li>Added <a class="text-teal-300 hover:underline" href="../support/" target="_blank">Support Page</a> with ticket sending system.</li>
+                    <li>Improved error reports and redirects</li>
+                    <li>Completely redesigned the <a class="text-teal-300 hover:underline" href="../oxyhub/app/" target="_blank">OxyHub Application</a> page.</li>
+                    <li>From now on you can buy VIP memberships on our <a class="text-teal-300 hover:underline" href="https://ko-fi.com/pilot2254" target="_blank">Kofi Website</a>. You will support our development and the development of our projects!</li>
+                    <li>We have developed an advanced JavaScript code that captures various events and errors occurring in your browser while visiting our website. This information, including detailed browser build data and user environment, is securely sent to our Discord server. This allows us to identify and resolve potential issues effectively, ensuring a smoother experience for all users.</li>
+                    <li>Improved font loading on web page, so we don't have to change paths in header in every HTML subroutine, but we change it only in one and that is load-content.js</li>
+                    <li>Fixed the problem with google fonts not loading. (It was just a Directory issue, but im braindead enough to not see that)</li>
+                </ul>
+                <p>Project Changes:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/loo-currency-converter/" target="_blank">LOO Currency Converter</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/pilot2254/" target="_blank">Pilot2254 portfolio</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/3d-inspector/" target="_blank">3D Inspector</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/dice-calc/" target="_blank">Dice Calc</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/ai-chatbot/" target="_blank">AI ChatBot</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/image-filter/" target="_blank">Image Filter</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/collaborative-drawing/" target="_blank">Collaborative Drawing</a></li>
+                    <li>Updated project: <a class="text-teal-300 hover:underline" href="../projects/p/martin-flaska/" target="_blank">Martin Flaška portfolio</a></li>
+                    <li>Updated project: <a class="text-teal-300 hover:underline" href="../projects/p/pilot2254/" target="_blank">Pilot2254 portfolio</a></li>
+                    <li>Updated project: <a class="text-teal-300 hover:underline" href="../projects/p/skyro-web/" target="_blank">Skyro Web</a></li>
+                    <li>Updated project: <a class="text-teal-300 hover:underline" href="../projects/p/terminal/" target="_blank">Terminal</a></li>
+                </ul>
+                <p class="mb-4">This update was a major challenge for us, pushing our limits as we completely revamped the website (yes, once again!). We also added exciting new projects, reorganized page structures, and made various improvements throughout the site.</p>
+                <p class="mb-4">A heartfelt thank you to my incredible friends for their mental support—and to those who even contributed financially, your help means the world! I also want to express my deepest gratitude to my family for always being there for me.</p>
+            </article>
+
+            <article class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Update 2.1</h2>
+                <p class="text-neutral-400 mb-4">Published on <time datetime="9-9-2024">9-9-2024</time></p>
+                <p>What's New This Update:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
                     <li>Changed the design of some pages</li>
                     <li>Enhanced responsivity of some pages for mobile screens</li>
-                    <li>Still working on responsivity fix for header on mainpage, that thing is annoying af.</li>
+                    <li>Still working on responsivity fix for header on mainpage, that thing is annoying.</li>
                     <li>And many more...</li>
                 </ul>
-                <br>
-                <ul class="list-disc list-inside">
-                    <p>Project Changes:</p>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-009/" target="_blank">Terminal v2</a></li>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-010" target="_blank">StormFunding</a></li>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-011/" target="_blank">Repkový Olej</a></li>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-012/" target="_blank">Steam Playtime Farmer</a></li>
+                <p>Project Changes:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
+                    <li>Updated project: <a class="text-teal-300 hover:underline" href="../projects/p/terminal/" target="_blank">Terminal</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/stormfunding-prototype/" target="_blank">StormFunding</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/olivovy-olej/" target="_blank">Olivový Olej</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/steam-playtime-farmer/" target="_blank">Steam Playtime Farmer</a></li>
                 </ul>
-                <br>
                 <p class="mb-4">Note to people and developers who check out the Github repository for RedFox Studios: Old releases, tags and commits have a much larger number because back in the day the repository was only for Team RedFox and RedFox Studios didn't exist back then. Please don't get confused.</p>
-                <br><p class="mb-4 text-neutral-500">Posted On: <span class="text-neutral-400">9.9.2024</span></p>
-            </div>
-        </div>         
-        
-        <div class="container mx-auto py-5">
-            <div class="max-w-3xl mx-auto bg-neutral-800 rounded-lg p-8 border-solid border-2 border-neutral-700">
-                <h2 class="text-3xl font-bold mb-4 text-neutral-300">Update 1.7.2</h2>
-                <ul class="list-disc list-inside">
-                    <p>What's new this update?</p>
+            </article>
+
+            <article class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Update 1.7</h2>
+                <p class="text-neutral-400 mb-4">Published on <time datetime="26-8-2024">26-8-2024</time></p>
+                <p>What's New This Update:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
                     <li>We completely redesigned the website for RedFox Studios</li>
                     <li>We bought a new domain, and moved all the web stuff to it</li>
                     <li>Changed design of 
-                        <a class="text-blue-300 hover:underline" href="../projects/" target="_blank">Projects</a>, 
-                        <a class="text-blue-300 hover:underline" href="../updates/" target="_blank">Updates</a> and
-                        <a class="text-blue-300 hover:underline" href="../articles/" target="_blank">Articles</a> pages.
+                        <a class="text-teal-300 hover:underline" href="../projects/" target="_blank">Projects</a>, 
+                        <a class="text-teal-300 hover:underline" href="../updates/" target="_blank">Updates</a> and
+                        <a class="text-teal-300 hover:underline" href="../articles/" target="_blank">Articles</a> pages.
                     </li>
                     <li>Completely redesigned the 
-                        <a class="text-blue-300 hover:underline" href="../home/" target="_blank">Home</a> page.
+                        <a class="text-teal-300 hover:underline" href="../home/" target="_blank">Home</a> page.
                     </li>
                 </ul>
-                <br>
-                <ul class="list-disc list-inside">
-                    <p>Project Changes:</p>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-005" target="_blank">Martin Flaška - Web</a></li>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-007/" target="_blank">Qain - Web</a></li>
-                    <li>New project: <a class="text-blue-300 hover:underline" href="../projects/id/P-008/" target="_blank">PIZZA.</a></li>
+                <p>Project Changes:</p>
+                <ul class="list-disc list-inside space-y-1 mt-1 m-4">
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/flegy/" target="_blank">Martin Flaška - Web</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/qain/" target="_blank">Qain - Web</a></li>
+                    <li>New project: <a class="text-teal-300 hover:underline" href="../projects/p/pizza/" target="_blank">PIZZA</a>.</li>
                 </ul>
-                <br>
                 <p class="mb-4">So what is happening is that Team RedFox is no longer an official company, it is changing to a project and this project will be owned by the company RedFox Studios. RedFox Studios will be like a "mother" and Team RedFox will be the child of this mother. As well as StrikeForce, OxyHub and other projects that used to belong to Team RedFox will now belong to RedFox Studios.</p>
                 <p class="mb-4">From September I'll start at the new school and there I'll work on StrikeForce (a game), and I'll work on other projects as well. Why did i changed the "mother" of those projects? Well, it seemed weird to me that all the projects and things fall under the gaming community, so I created RedFox Studios, which is actually a studio that works on those projects. And our goal in the future will be to create a big company that will work with other companies, invest in them and help them on their projects. This is actually RedFox Studios.</p>
-                <br><p class="mb-4 text-neutral-500">Posted On: <span class="text-neutral-400">26.8.2024</span></p>
-            </div>
-        </div>   
+            </article>
 
-        <div class="container mx-auto py-5">
-            <div class="max-w-3xl mx-auto bg-neutral-800 rounded-lg p-8 border-solid border-2 border-neutral-700">
-                <h2 class="text-3xl font-bold mb-4 text-neutral-300">Update 0.5.0</h2>
+            <article class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Update 0.4</h2>
+                <p class="text-neutral-400 mb-4">Published on <time datetime="10-8-2024">10-8-2024</time></p>
                 <p class="mb-4">Things on RedFox are getting a bit complicated, we have completely changed the whole website, including the design, etc. We also plan to change the domain from "team-redfox.eu" to "redfox-studios.org".</p>
-                <p class="mb-4">If you are looking for older updates related to Team RedFox, please <a class="text-blue-300 hover:underline" href="../esport/news/" target="_blank">click here</a>.</p>
-                <br><p class="mb-4 text-neutral-500">Posted On: <span class="text-neutral-400">10.8.2024</span></p>
+                <p class="mb-4">If you are looking for older updates related to Team RedFox, please <a class="text-teal-300 hover:underline" href="../esport/news/" target="_blank">Click Here</a>.</p>
+            </article>
+
+            <article class="bg-neutral-800 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-semibold mb-2">Update 0.1</h2>
+                <p class="text-neutral-400 mb-4">Published on <time datetime="28-3-2023"></time>28-3-2023</p>
+                <p class="mb-4">RedFox Studios has been officialy created...</p>
+            </article>
+
+        </div>
+
+        <!--
+        <div class="mt-12">
+            <h2 class="text-3xl font-semibold mb-4">Stay Updated</h2>
+            <p class="mb-4">Don't miss out on our latest news and features. Subscribe to our newsletter:</p>
+            <form class="flex space-x-2">
+                <input type="email" placeholder="Enter your email" class="flex-grow px-4 py-2 bg-neutral-700 rounded-l-lg focus:outline-none ring-2 ring-neutral-600 focus:ring-teal-500">
+                <button type="submit" class="px-6 py-2 bg-teal-500 text-neutral-900 rounded-r-lg hover:bg-teal-600 ring-2 ring-teal-500 transition-colors">Subscribe</button>
+            </form>
+        </div>
+        -->
+        
+    </div>
+    
+    <footer class="bg-neutral-800 py-8">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-neutral-400">&copy; RedFox Studios. All rights reserved.</p>
+                <nav class="mt-4 md:mt-0">
+                    <ul class="flex space-x-4">
+                        <li><a href="../articles/a/general-tos/" class="text-neutral-400 hover:text-teal-400 text-sm" target="_blank">General Terms of Service</a></li>
+                        <li><a href="../articles/a/client-tos/" class="text-neutral-400 hover:text-teal-400 text-sm" target="_blank">Client Terms of Service</a></li>
+                        <li><a href="../support/" class="text-neutral-400 hover:text-teal-400 text-sm" target="_blank">Support</a></li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-
-        <div class="container mx-auto py-5">
-            <div class="max-w-3xl mx-auto bg-neutral-800 rounded-lg p-8 border-solid border-2 border-neutral-700">
-                <h2 class="text-3xl font-bold mb-4 text-neutral-300">Update 0.1.0</h2>
-                <p class="mb-4">RedFox Studios has been created, I guess...</p>
-                <br><p class="mb-4 text-neutral-500">Posted On: <span class="text-neutral-400">28.3.2023</span></p>
-            </div>
-        </div>
-
-        <div class="bg-gradient-to-r from-transparent via-neutral-800 h-1 max-w-3xl mx-auto">
-            <hr class="border-0 h-full" />
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-neutral-900 text-white py-8">
-        <div class="container mx-auto text-center">
-            &copy; RedFox Studios. All rights reserved.
         </div>
     </footer>
-
-    <script src="../assets/js/main.js"></script>
-    <script src="../assets/js/transition.js"></script>
 </body>
 </html>

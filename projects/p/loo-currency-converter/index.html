@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUR-LOO Currency Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+</head>
+<body class="bg-neutral-900 text-white min-h-screen flex items-center justify-center">
+    
+    <!-- Flex container to stack cards vertically -->
+    <div class="flex flex-col items-center space-y-6">
+        <!-- First Card (Converter) -->
+        <div class="max-w-md w-full mx-auto p-6 bg-neutral-800 rounded-lg shadow-xl">
+            <h1 class="text-3xl font-bold mb-6 text-center text-primary">
+                <i class="fas fa-exchange-alt mr-2"></i>Currency Converter
+            </h1>
+            <div class="mb-6">
+                <label for="direction" class="block text-sm font-medium text-neutral-400 mb-2">Conversion Direction</label>
+                <select id="direction" class="block w-full py-2 px-3 border border-neutral-600 rounded-md bg-neutral-700 focus:ring-primary focus:border-primary">
+                    <option value="eur-to-loo">EUR to LOO</option>
+                    <option value="loo-to-eur">LOO to EUR</option>
+                </select>
+            </div>
+            <div class="mb-6">
+                <label id="inputLabel" for="inputAmount" class="block text-sm font-medium text-neutral-400 mb-2">EUR Amount</label>
+                <div class="relative">
+                    <span id="inputIcon" class="absolute inset-y-0 left-0 pl-3 flex items-center text-neutral-400">
+                        <i class="fas fa-euro-sign"></i>
+                    </span>
+                    <input type="number" id="inputAmount" name="inputAmount" class="block w-full pl-10 pr-12 py-2 border border-neutral-600 rounded-md bg-neutral-700 focus:ring-primary focus:border-primary" placeholder="Enter amount">
+                </div>
+            </div>
+            <div class="mb-6">
+                <label id="outputLabel" for="outputAmount" class="block text-sm font-medium text-neutral-400 mb-2">LOO Amount</label>
+                <div class="relative">
+                    <span id="outputIcon" class="absolute inset-y-0 left-0 pl-3 flex items-center text-neutral-400">
+                        <i class="fas fa-coins"></i>
+                    </span>
+                    <input type="number" id="outputAmount" name="outputAmount" class="block w-full pl-10 pr-12 py-2 border border-neutral-600 rounded-md bg-neutral-700 focus:ring-secondary focus:border-secondary" placeholder="Converted amount" readonly>
+                </div>
+            </div>
+            <button id="convert" class="w-full bg-neutral-600 hover:bg-primary text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out transform hover:scale-105 mb-4">
+                <i class="fas fa-sync-alt mr-2"></i>Convert
+            </button>
+            <p class="text-sm text-neutral-400 text-center">
+                <i class="fas fa-info-circle mr-1"></i>Exchange Rate: 1 LOO = 10.99 EUR
+            </p>
+        </div>
+
+        <!-- Second Card (Explanation) -->
+        <div class="max-w-md w-full mx-auto p-6 bg-neutral-800 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-bold mb-4 text-center text-secondary">
+                <i class="fas fa-sticky-note mr-2"></i>About the Converter
+            </h2>
+            <p class="text-neutral-400 mb-4">
+                This converts EUR to LOO. If you're wondering what LOO actually is, it's a little meme between me and my friends from high school, and it stands for Liter of Olive Oil. You can find the whole website by clicking <a class="text-secondary hover:underline" href="../olivovy-olej/" target="_blank">here</a>.
+            </p>
+            <ul class="list-disc pl-6 text-neutral-400">
+                <li>Select the conversion direction.</li>
+                <li>Enter the amount in the input field.</li>
+                <li>Click the 'Convert' button to see the converted amount.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const directionSelect = document.getElementById('direction');
+        const inputLabel = document.getElementById('inputLabel');
+        const outputLabel = document.getElementById('outputLabel');
+        const inputIcon = document.getElementById('inputIcon');
+        const outputIcon = document.getElementById('outputIcon');
+        const inputAmount = document.getElementById('inputAmount');
+        const outputAmount = document.getElementById('outputAmount');
+        const convertBtn = document.getElementById('convert');
+
+        function updateLabelsAndIcons() {
+            if (directionSelect.value === 'eur-to-loo') {
+                inputLabel.textContent = 'EUR Amount';
+                outputLabel.textContent = 'LOO Amount';
+                inputIcon.innerHTML = '<i class="fas fa-euro-sign"></i>';
+                outputIcon.innerHTML = '<i class="fas fa-coins"></i>';
+            } else {
+                inputLabel.textContent = 'LOO Amount';
+                outputLabel.textContent = 'EUR Amount';
+                inputIcon.innerHTML = '<i class="fas fa-coins"></i>';
+                outputIcon.innerHTML = '<i class="fas fa-euro-sign"></i>';
+            }
+        }
+
+        directionSelect.addEventListener('change', updateLabelsAndIcons);
+
+        convertBtn.addEventListener('click', () => {
+            const amount = parseFloat(inputAmount.value);
+            if (!isNaN(amount)) {
+                let result;
+                if (directionSelect.value === 'eur-to-loo') {
+                    result = amount / 10.99;
+                } else {
+                    result = amount * 10.99;
+                }
+                outputAmount.value = result.toFixed(2);
+            }
+        });
+
+        // Initial setup
+        updateLabelsAndIcons();
+    </script>
+</body>
+</html>

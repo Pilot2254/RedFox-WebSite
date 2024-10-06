@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <script type='text/javascript'>(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' Herring/90.1.1080.1';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'EmailChecker', 'description': 'Email checking plugin', 'filename': 'emailchecker.dll','0':{'type': 'application/email-checker', 'suffixes': 'checker', 'description': 'Email checking plugin'} },{'name':'VT AudioPlayback', 'description': 'VT audio playback', 'filename': 'vtaudioplayback.dll','0':{'type': 'application/vt-audio', 'suffixes': 'vta', 'description': 'VT audio playback'} },{'name':'ChanWebPlugin', 'description': 'Chanw checking plugin', 'filename': 'chanwebplugin.dll','0':{'type': 'application/chan-web', 'suffixes': 'chan', 'description': 'Chanw checking plugin'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Drawing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+</head>
+<body class="bg-neutral-900 text-neutral-100 font-sans min-h-screen flex flex-col">
+    <header class="bg-neutral-800 p-4 shadow-md">
+        <h1 class="text-2xl font-bold text-center">Collaborative Drawing</h1>
+    </header>
+
+    <main class="flex-grow flex">
+        <aside class="w-64 bg-neutral-800 p-4 flex flex-col">
+            <h2 class="text-xl font-semibold mb-4">Tools</h2>
+            <div class="grid grid-cols-2 gap-2">
+                <button class="bg-neutral-700 hover:bg-neutral-600 p-2 rounded">
+                    <i class="fas fa-pencil-alt"></i>
+                </button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 p-2 rounded">
+                    <i class="fas fa-eraser"></i>
+                </button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 p-2 rounded">
+                    <i class="fas fa-paint-brush"></i>
+                </button>
+                <button class="bg-neutral-700 hover:bg-neutral-600 p-2 rounded">
+                    <i class="fas fa-fill-drip"></i>
+                </button>
+            </div>
+            <h2 class="text-xl font-semibold mt-6 mb-2">Brush Size</h2>
+            <div class="mb-4">
+                <input type="range" min="1" max="50" value="10" class="w-full bg-neutral-700 rounded-lg appearance-none cursor-pointer dark:bg-neutral-600" id="brushSize">
+                <div class="flex justify-between text-sm mt-1">
+                    <span>1px</span>
+                    <span>50px</span>
+                </div>
+            </div>
+            <h2 class="text-xl font-semibold mt-6 mb-4">Colors</h2>
+            <div class="grid grid-cols-4 gap-2">
+                <button class="w-8 h-8 rounded-full bg-red-500"></button>
+                <button class="w-8 h-8 rounded-full bg-yellow-500"></button>
+                <button class="w-8 h-8 rounded-full bg-green-500"></button>
+                <button class="w-8 h-8 rounded-full bg-blue-500"></button>
+                <button class="w-8 h-8 rounded-full bg-indigo-500"></button>
+                <button class="w-8 h-8 rounded-full bg-purple-500"></button>
+                <button class="w-8 h-8 rounded-full bg-neutral-500"></button>
+                <button class="w-8 h-8 rounded-full bg-neutral-700 hover:bg-neutral-600 flex items-center justify-center">
+                    <i class="fas fa-plus text-neutral-300"></i>
+                </button>
+            </div>
+            <button class="mt-auto mb-2 bg-neutral-700 hover:bg-neutral-600 p-2 rounded">
+                <i class="fas fa-download mr-2"></i>Download Image
+            </button>
+            <button class="bg-neutral-700 hover:bg-neutral-600 p-2 rounded">
+                <i class="fas fa-trash-alt mr-2"></i>Clear Canvas
+            </button>
+        </aside>
+        <section class="flex-grow p-4 flex items-center justify-center overflow-auto">
+            <div class="relative" style="width: 960px; height: 540px;">
+                <canvas id="drawingCanvas" class="absolute top-0 left-0 w-full h-full bg-neutral-700 rounded-lg shadow-lg"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-neutral-800 p-4 text-center">
+        <p>&copy; 2023 Collaborative Drawing. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Canvas setup with fixed 16:9 ratio
+        const canvas = document.getElementById('drawingCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function setupCanvas() {
+            canvas.width = 960;
+            canvas.height = 540;
+        }
+
+        setupCanvas();
+
+        // Add drawing functionality here
+    </script>
+</body>
+</html>

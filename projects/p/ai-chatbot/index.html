@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - RedFox Studios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+    <style>
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+        .loading-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+    </style>
+</head>
+<body class="bg-neutral-900 text-neutral-200 font-montserrat min-h-screen flex flex-col">
+    <header class="bg-neutral-800 shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-4 max-w-6xl">
+            <nav class="flex justify-between items-center">
+                <a href="/home/" class="text-2xl font-bold text-neutral-100">RedFox Studios</a>
+                <a href="/home/" class="text-neutral-400 hover:text-teal-300 transition-colors border-b border-neutral-700 hover:border-teal-300 pb-1">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-24 max-w-4xl flex items-center justify-center">
+        <div class="bg-neutral-800 rounded-lg shadow-2xl overflow-hidden w-full max-w-2xl">
+            <div class="bg-neutral-700 p-6 flex items-center justify-between">
+                <h1 class="text-3xl font-bold text-white">
+                    <i class="fas fa-robot text-teal-500 mr-2"></i>
+                    RedFox AI
+                </h1>
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                    <span class="text-sm text-white">Online</span>
+                </div>
+                <!--
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <span class="text-sm text-white">Offline</span>
+                </div>
+                -->
+            </div>
+            <div id="chat-messages" class="p-6 h-96 overflow-y-auto space-y-4 bg-neutral-900">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 mr-3">
+                        <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold shadow-lg">
+                            AI
+                        </div>
+                    </div>
+                    <div class="bg-neutral-700 rounded-lg p-3 max-w-3/4 shadow-md">
+                        <p class="text-sm">Hello! I'm AI, your virtual assistant. How can I help you today?</p>
+                    </div>
+                </div>
+                <div class="flex items-start justify-end">
+                    <div class="bg-teal-600 rounded-lg p-3 max-w-3/4 shadow-md">
+                        <p class="text-sm">Hi AI! Can you tell me about RedFox Studios?</p>
+                    </div>
+                    <div class="flex-shrink-0 ml-3">
+                        <div class="w-10 h-10 rounded-full bg-neutral-600 flex items-center justify-center text-white font-bold shadow-lg">
+                            U
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 mr-3">
+                        <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold shadow-lg">
+                            AI
+                        </div>
+                    </div>
+                    <div class="bg-neutral-700 rounded-lg p-3 max-w-3/4 shadow-md">
+                        <p class="text-sm">Currently run by a hobbyist named Michal Flaška, RedFox Studios is a company which is involved in the creation of various projects, whether their own or those of other companies. So far they specialize in applications, but they believe that one day they will also specialize in creating games and content on social media.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 bg-neutral-700 border-t border-neutral-600">
+                <form id="chat-form" class="flex items-center">
+                    <input type="text" id="user-input" placeholder="Type your message here..." class="flex-grow px-4 py-3 bg-neutral-800 text-neutral-200 rounded-l-md focus:outline-none ring-2 ring-neutral-600 focus:ring-teal-500 transition duration-200">
+                    <button type="submit" class="bg-teal-600 text-white px-6 py-3 rounded-r-md hover:bg-teal-700 transition duration-200 focus:outline-none ring-2 ring-teal-500">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-neutral-800 mt-8">
+        <div class="container mx-auto px-4 py-6 text-center text-neutral-400">
+            <p>&copy; RedFox Studios. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const userInput = document.getElementById('user-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (userInput.value.trim() !== '') {
+                addMessage('user', userInput.value);
+                showLoadingAnimation();
+                // Simulate AI response (replace with actual AI integration)
+                setTimeout(() => {
+                    removeLoadingAnimation();
+                    // Randomly decide whether to show an error or a normal response
+                    if (Math.random() < 0.1) { // 10% chance of error
+                        addErrorMessage("I'm sorry, I encountered an error while processing your request. Please try again later.");
+                        console.error("An unknown error encountered while processing users request");
+                    } else {
+                        addMessage('ai', "I'm sorry, I'm a demo AI and can't provide real responses at the moment.");
+                    }
+                }, 2000);
+                userInput.value = '';
+            }
+        });
+
+        function addMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender === 'user' ? 'flex items-start justify-end' : 'flex items-start';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'flex-shrink-0 ' + (sender === 'user' ? 'ml-3' : 'mr-3');
+            avatar.innerHTML = `
+                <div class="w-10 h-10 rounded-full ${sender === 'user' ? 'bg-neutral-600' : 'bg-teal-600'} flex items-center justify-center text-white font-bold shadow-lg">
+                    ${sender === 'user' ? 'U' : 'AI'}
+                </div>
+            `;
+
+            const messageContent = document.createElement('div');
+            messageContent.className = `${sender === 'user' ? 'bg-teal-600' : 'bg-neutral-700'} rounded-lg p-3 max-w-3/4 shadow-md`;
+            messageContent.innerHTML = `<p class="text-sm">${message}</p>`;
+
+            if (sender === 'user') {
+                messageDiv.appendChild(messageContent);
+                messageDiv.appendChild(avatar);
+            } else {
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(messageContent);
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addErrorMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'flex-shrink-0 mr-3';
+            avatar.innerHTML = `
+                <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-bold shadow-lg">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+            `;
+
+            const messageContent = document.createElement('div');
+            messageContent.className = 'bg-red-600 rounded-lg p-3 max-w-3/4 shadow-md';
+            messageContent.innerHTML = `<p class="text-sm">${message}</p>`;
+
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(messageContent);
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showLoadingAnimation() {
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'flex items-start';
+            loadingDiv.innerHTML = `
+                <div class="flex-shrink-0 mr-3">
+                    <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold shadow-lg">
+                        <div class="loading-dots flex space-x-1">
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                            <div class="loading-dot"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-neutral-700 rounded-lg p-3 max-w-3/4 shadow-md">
+                    <p class="text-sm">AI is typing...</p>
+                </div>
+            `;
+            loadingDiv.id = 'loading-animation';
+            chatMessages.appendChild(loadingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeLoadingAnimation() {
+            const loadingDiv = document.getElementById('loading-animation');
+            if (loadingDiv) {
+                loadingDiv.remove();
+            }
+        }
+    </script>
+</body>
+</html>

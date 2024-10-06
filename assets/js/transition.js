@@ -1,4 +1,4 @@
-// Smooth scroll
+// Smooth scroll for navbar buttons (nav-link id is required)
 const links = document.querySelectorAll('.nav-link');
 
 for (const link of links) {

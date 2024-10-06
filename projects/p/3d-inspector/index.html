@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Model Customization</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="/assets/js/load-content.js"></script>
+</head>
+<body class="bg-neutral-900 text-white flex items-center justify-center h-screen">
+  <!-- Modal for controls -->
+  <div id="controlsModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    <div class="bg-neutral-800 p-8 rounded-lg shadow-lg text-center">
+      <h2 class="text-2xl font-semibold mb-4">Controls</h2>
+      <p class="mb-4">💻 <strong>Drag</strong> the mouse to rotate the object.</p>
+      <p class="mb-6">🔄 <strong>Scroll</strong> to zoom in and out.</p>
+      <button id="closeModalBtn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Got it!
+      </button>
+    </div>
+  </div>
+
+  <div id="cube-container" class="w-full h-full">
+    <canvas id="cubeCanvas"></canvas>
+  </div>
+
+  <!-- Overlay Customization Panel -->
+  <div id="customizationPanel" class="fixed top-0 right-0 h-full max-h-screen w-64 bg-neutral-800 p-6 z-40 shadow-lg overflow-y-auto">
+    <h2 class="text-lg font-bold mb-4">Customize Shape</h2>
+    <div class="mb-4">
+      <label class="block mb-2">Select Shape</label>
+      <select id="shapeSelect" class="w-full p-2 rounded bg-neutral-700 text-white">
+        <option value="cube">Cube</option>
+        <option value="sphere">Sphere</option>
+        <option value="cylinder">Cylinder</option>
+        <option value="torus">Torus</option>
+        <option value="cone">Cone</option>
+        <option value="pyramid">Pyramid</option>
+        <option value="dodecahedron">Dodecahedron</option>
+        <option value="octahedron">Octahedron</option>
+        <option value="icosahedron">Icosahedron</option>
+        <option value="tetrahedron">Tetrahedron</option>
+        <option value="teapot">Teapot</option>
+        <option value="torusKnot">Torus Knot</option>
+        <option value="door">Door</option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2">Cube Color</label>
+      <input id="colorPicker" type="color" class="w-full p-2 rounded">
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2">Cube Size</label>
+      <input id="sizeSlider" type="range" min="1" max="3" step="0.1" value="1" class="w-full">
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2">Material</label>
+      <select id="materialSelect" class="w-full p-2 rounded bg-neutral-700 text-white">
+        <option value="standard">Standard</option>
+        <option value="phong">Phong</option>
+        <option value="wireframe">Wireframe</option>
+        <option value="lambert">Lambert</option>
+      </select>
+    </div>
+    <h2 class="text-lg font-bold mb-4">Light Settings</h2>
+    <div class="mb-4">
+      <label class="block mb-2">Light Color</label>
+      <input id="lightColorPicker" type="color" class="w-full p-2 rounded">
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2">Light Position X</label>
+      <input id="lightPositionX" type="range" min="-10" max="10" step="0.1" value="5" class="w-full">
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2">Light Position Y</label>
+      <input id="lightPositionY" type="range" min="-10" max="10" step="0.1" value="5" class="w-full">
+    </div>
+    <div class="mb-4">
+      <label class="block mb-2">Light Position Z</label>
+      <input id="lightPositionZ" type="range" min="-10" max="10" step="0.1" value="5" class="w-full">
+    </div>
+    <button id="resetCameraBtn" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mb-4">
+      Reset Camera
+    </button>
+    <button id="resetLightBtn" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded mb-4">
+      Reset Light Position
+    </button>
+    <button id="downloadModelBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Download Model
+    </button>
+  </div>
+
+  <!-- Menu Icon to Toggle Panel -->
+  <button id="togglePanelBtn" class="fixed top-5 right-8 text-2xl z-50 text-white">
+    <i class="fas fa-wrench"></i>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/exporters/OBJExporter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TeapotGeometry.js"></script> <!-- Teapot Geometry -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/TorusKnotGeometry.js"></script> <!-- Torus Knot Geometry -->
+
+  <script>
+    // Scene setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('cubeCanvas'), antialias: true });
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(renderer.domElement);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    // Create initial shape
+    let geometry = new THREE.BoxGeometry();
+    let material = new THREE.MeshStandardMaterial({
+      color: 0x0077ff,
+      metalness: 0.7,
+      roughness: 0.2
+    });
+    let currentShape = new THREE.Mesh(geometry, material);
+    scene.add(currentShape);
+
+    camera.position.z = 5;
+
+    // Add mouse controls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    // Animate
+    function animate() {
+      requestAnimationFrame(animate);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Resize canvas on window resize
+    window.addEventListener('resize', () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    });
+
+    // Modal control
+    const modal = document.getElementById('controlsModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+
+    // Panel toggle logic
+    const togglePanelBtn = document.getElementById('togglePanelBtn');
+    const customizationPanel = document.getElementById('customizationPanel');
+
+    togglePanelBtn.addEventListener('click', () => {
+      customizationPanel.classList.toggle('hidden');
+    });
+
+    // Customization options
+    const shapeSelect = document.getElementById('shapeSelect');
+    const colorPicker = document.getElementById('colorPicker');
+    const sizeSlider = document.getElementById('sizeSlider');
+    const materialSelect = document.getElementById('materialSelect');
+    const lightColorPicker = document.getElementById('lightColorPicker');
+    const lightPositionX = document.getElementById('lightPositionX');
+    const lightPositionY = document.getElementById('lightPositionY');
+    const lightPositionZ = document.getElementById('lightPositionZ');
+    const resetCameraBtn = document.getElementById('resetCameraBtn');
+    const resetLightBtn = document.getElementById('resetLightBtn');
+    const downloadModelBtn = document.getElementById('downloadModelBtn');
+
+    // Change color
+    colorPicker.addEventListener('input', () => {
+      currentShape.material.color.set(colorPicker.value);
+    });
+
+    // Change size
+    sizeSlider.addEventListener('input', () => {
+      const scale = sizeSlider.value;
+      currentShape.scale.set(scale, scale, scale);
+    });
+
+    // Change shape type
+    shapeSelect.addEventListener('change', () => {
+      const shapeValue = shapeSelect.value;
+      scene.remove(currentShape);
+      if (shapeValue === "cube") {
+        geometry = new THREE.BoxGeometry();
+      } else if (shapeValue === "sphere") {
+        geometry = new THREE.SphereGeometry(1, 32, 32);
+      } else if (shapeValue === "cylinder") {
+        geometry = new THREE.CylinderGeometry(1, 1, 2, 32);
+      } else if (shapeValue === "torus") {
+        geometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
+      } else if (shapeValue === "cone") {
+        geometry = new THREE.ConeGeometry(1, 2, 32);
+      } else if (shapeValue === "pyramid") {
+        geometry = new THREE.CylinderGeometry(0, 1, 2, 4);
+      } else if (shapeValue === "dodecahedron") {
+        geometry = new THREE.DodecahedronGeometry();
+      } else if (shapeValue === "octahedron") {
+        geometry = new THREE.OctahedronGeometry();
+      } else if (shapeValue === "icosahedron") {
+        geometry = new THREE.IcosahedronGeometry();
+      } else if (shapeValue === "tetrahedron") {
+        geometry = new THREE.TetrahedronGeometry();
+      } else if (shapeValue === "teapot") {
+        geometry = new THREE.TeapotGeometry(1, 8);
+      } else if (shapeValue === "torusKnot") {
+        geometry = new THREE.TorusKnotGeometry(1, 0.4, 100, 16);
+      } else if (shapeValue === "door") {
+        geometry = new THREE.BoxGeometry(1, 2, 0.1); 
+      }
+      currentShape = new THREE.Mesh(geometry, currentShape.material);
+      scene.add(currentShape);
+    });
+
+    //      } else if (shapeValue === "door") {
+    //  geometry = new THREE.BoxGeometry(1, 2, 0.1); 
+
+    // Change material type
+    materialSelect.addEventListener('change', () => {
+      const materialValue = materialSelect.value;
+      let newMaterial;
+      if (materialValue === "standard") {
+        newMaterial = new THREE.MeshStandardMaterial({
+          color: currentShape.material.color,
+          metalness: 0.7,
+          roughness: 0.2
+        });
+      } else if (materialValue === "phong") {
+        newMaterial = new THREE.MeshPhongMaterial({
+          color: currentShape.material.color,
+          shininess: 100
+        });
+      } else if (materialValue === "wireframe") {
+        newMaterial = new THREE.MeshBasicMaterial({
+          color: currentShape.material.color,
+          wireframe: true
+        });
+      } else if (materialValue === "lambert") {
+        newMaterial = new THREE.MeshLambertMaterial({
+          color: currentShape.material.color
+        });
+      }
+      currentShape.material = newMaterial;
+    });
+
+    // Update light color
+    lightColorPicker.addEventListener('input', () => {
+      directionalLight.color.set(lightColorPicker.value);
+    });
+
+    // Update light position
+    lightPositionX.addEventListener('input', () => {
+      directionalLight.position.x = lightPositionX.value;
+    });
+    lightPositionY.addEventListener('input', () => {
+      directionalLight.position.y = lightPositionY.value;
+    });
+    lightPositionZ.addEventListener('input', () => {
+      directionalLight.position.z = lightPositionZ.value;
+    });
+
+    // Reset camera
+    resetCameraBtn.addEventListener('click', () => {
+      camera.position.set(0, 0, 5);
+      controls.target.set(0, 0, 0);
+      controls.update();
+    });
+
+    // Reset light position
+    resetLightBtn.addEventListener('click', () => {
+      directionalLight.position.set(5, 5, 5);
+      lightPositionX.value = 5;
+      lightPositionY.value = 5;
+      lightPositionZ.value = 5;
+    });
+
+    // Download model functionality
+    downloadModelBtn.addEventListener('click', () => {
+      const exporter = new THREE.OBJExporter();
+      const obj = exporter.parse(currentShape);
+      const blob = new Blob([obj], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'model.obj';
+      link.click();
+    });
+  </script>
+</body>
+</html>
+
+<!--
+      } else if (shapeValue === "door") {
+        geometry = new THREE.BoxGeometry(1, 2, 0.1); 
+-->

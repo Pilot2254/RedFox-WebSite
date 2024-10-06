@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olivový Olej</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="/assets/js/load-content.js"></script>
+  <style>
+    body {
+      background-color: #f0f8d9; /* svetlo zlto-zelena */
+    }
+
+    /* Custom scrollbar styles */
+    ::-webkit-scrollbar {
+    width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+    background: #f0f8d9; /* Light yellow-green background */
+    border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+    background-color: #a0d083; /* Darker yellow-green thumb */
+    border-radius: 6px;
+    border: 3px solid #f0f8d9; /* Padding around the thumb to give spacing */
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+    background-color: #8cbf6b; /* Darker thumb on hover */
+    }
+  </style>
+</head>
+<body class="text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="relative h-screen bg-cover bg-center bg-black">
+        <!-- Background Image with Opacity -->
+        <div class="absolute inset-0">
+        <div class="w-full h-full bg-cover bg-center" style="background-image: url('oil.jpg'); opacity: 0.5;"></div>
+        </div>
+        <!-- Content -->
+        <div class="flex items-center justify-center h-full bg-yellow-200/40 relative">
+        <h1 class="text-6xl font-bold text-yellow-100">Olivový Olej</h1>
+        </div>
+    </header>  
+
+    <!-- Main Content -->
+    <main class="p-12"> <!-- Increased padding for a bigger feel -->
+    <section class="mb-12 text-center"> <!-- Increased bottom margin -->
+      <h2 class="text-5xl font-semibold text-green-800">Čo je Olivový Olej?</h2> <!-- Slightly larger title -->
+      <p class="mt-6 text-2xl text-gray-700"> <!-- Increased text size -->
+        Olivový Olej je jedným z najzdravších a najpoužívanejších Olejov na svete! Má mnoho výhod pre vaše zdravie a kuchyňu.
+        Je známy pre svoje zdravotné benefity a široké využitie v rôznych receptoch. Od výživných jedál až po kozmetické
+        produkty, Olivový Olej si našiel svoje miesto v každodennom živote mnohých ľudí.
+      </p>
+    </section>
+  
+    <section class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-12"> <!-- Increased bottom margin and gap between columns -->
+      <!-- Výhody Section -->
+      <div class="bg-white shadow-lg p-8 rounded-lg"> <!-- Increased padding for content -->
+        <h3 class="text-3xl font-semibold text-green-800 mb-6">Výhody</h3> <!-- Larger title and margin -->
+        <ul class="text-xl text-gray-700 list-disc list-inside space-y-4"> <!-- Increased text size and spacing between list items -->
+          <li>Vysoký obsah omega-3 a omega-6 mastných kyselín, ktoré podporujú zdravé fungovanie mozgu a srdca.</li>
+          <li>Je odolný voči vysokým teplotám, takže je ideálny na smaženie a pečenie bez rizika zhoršenia kvality.</li>
+          <li>Pravidelná konzumácia môže pomôcť znížiť hladinu "zlého" cholesterolu a zlepšiť zdravie ciev.</li>
+          <li>Má neutrálnu chuť, takže sa hodí do rôznych jedál bez toho, aby ovplyvňoval ich chuťový profil.</li>
+          <li>Obsahuje vitamín E, ktorý prispieva k ochrane buniek pred oxidačným stresom.</li>
+        </ul>
+      </div>
+  
+      <!-- Ako používať Section -->
+      <div class="bg-white shadow-lg p-8 rounded-lg">
+        <h3 class="text-3xl font-semibold text-green-800 mb-6">Ako používať?</h3>
+        <p class="text-xl text-gray-700">
+          Olivový Olej sa hodí na rôzne účely v kuchyni. Okrem klasického varenia a pečenia je výborný aj na prípravu
+          šalátových dresingov, marinád, a dokonca sa často využíva aj v domácich kozmetických prípravkoch. Je vhodný
+          do surových jedál, keďže nepridáva výraznú chuť, čo ho robí univerzálnym pomocníkom v každej kuchyni. Vďaka
+          jeho schopnosti zachovávať kvalitu pri vysokých teplotách sa používa aj pri grilovaní a smažení na panvici.
+        </p>
+        <p class="mt-4 text-xl text-gray-700">
+          Olivový Olej nájdete aj v rôznych výrobkoch pre starostlivosť o pleť a vlasy, kde pomáha hydratovať a regenerovať
+          pokožku. Má široké využitie nielen v potravinárstve, ale aj v oblasti zdravia a krásy.
+        </p>
+      </div>
+    </section>
+  </main>  
+
+    <!-- New Section with Image and Text -->
+    <section class="flex flex-col md:flex-row items-center mb-8 md:pr-24">
+        <!-- Image on the Left -->
+        <div class="md:w-1/2 mb-6 md:mb-0 flex justify-center">
+        <img src="oil1.jpg" alt="Olivový Olej" class="w-64 h-64 md:w-96 md:h-96 object-cover rounded-lg shadow-md">
+        </div>
+        <!-- Text on the Right -->
+        <div class="md:w-1/2 md:pl-8">
+        <h3 class="text-3xl font-semibold text-green-800 mb-4">Zaujímavosti o Olivovom Oleji</h3>
+        <p class="text-lg text-gray-700">
+            Olivový Olej má dlhú históriu používania, nielen v kuchyni, ale aj v priemysle. Vďaka jeho neutrálnemu
+            chuti a vysokej odolnosti voči teplu je ideálnym Olejom na varenie. Vedeli ste, že Olivový Olej má 
+            aj veľké ekologické výhody? Pestovanie repky prispieva k znižovaniu uhlíkových emisií! Olivový Olej je populárny 
+            vďaka svojej nízkej cene a širokej dostupnosti. Jeho pestovanie má zároveň pozitívny vplyv na životné prostredie, 
+            pretože repka slúži ako úžitková rastlina, ktorá zlepšuje kvalitu pôdy.
+        </p>
+        </div>
+    </section>
+
+    <!-- New Section with Blurred Image and Hover Effect -->
+    <section class="flex flex-col md:flex-row items-center mb-24 md:pr-24">
+        <!-- Image on the Left with Blur and Hover Effect -->
+        <div class="md:w-1/2 mb-6 md:mb-0 flex justify-center">
+        <img src="mike.jpg" alt="Olivový Olej"class="w-64 h-64 md:w-96 md:h-96 object-cover rounded-lg shadow-md transition duration-300 ease-in-out filter blur-2xl hover:blur-none">
+        </div>
+        <!-- Text on the Right -->
+        <div class="md:w-1/2 md:pl-8">
+        <h3 class="text-3xl font-semibold text-green-800 mb-4">Dokáže niekto aktívne konzumovať Olivový Olej?</h3>
+        <p class="text-lg text-gray-700">Ak si myslíš, že je to nemožné, zamysli sa znova. Ak si dosť statočný (alebo trochu šialený), tak áno, môžeš to skúsiť! Ja osobne by som sa tomu vyhol, pretože môj žalúdok je citlivý ako drahý porcelán – stačí malý záchvev Oleja a už by som utekal na WC ako Forrest Gump. Počul som však o pár odvážlivcoch, čo si to dali, a vraj to bola jazda. Nie práve tá najlepšia jazda, ale jazda určite. Takže odporúčania? Moc to neodporúčajú...</p><br>
+        <p class="text-lg text-gray-700">Ale potom tu máme Miška. Miško nie je obyčajný človek. Miško je legenda. On sa nezastaví pred ničím, ani pred Olejom! Tento frajer si dáva Olej na raňajky, obed a večeru. Nie, nepreháňam. Kedykoľvek ho vidím, jeho jedálny lístok je taký monotónny, až by sa nudil aj robot. Sedíte pri stole, všade naokolo vyprážaný syr, burger, lasagne... a potom príde Miško. Pred ním prázdny tanier a pohár Oleja. Áno, čítaš správne. Žiaden burger, žiadne hranolky, len čistý, tekutý Olej. Niekto má rad Olej na šalát, ale Miško? Miško nepotrebuje šalát.</p><br>
+        <p class="text-lg text-gray-700">Ak chceš vedieť, ako vyzerá pravý milovník Oleja, obrázok Miška nájdeš hneď vedľa tohto textu. Pozri sa naň a nechaj sa inšpirovať… ale radšej si to vyskúšaj doma len pod dohľadom dospelého!</p>
+        </div>
+    </section>  
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-green-800 text-white p-6 text-center">
+    <p>Vytvorený ako veľmi seriózny projekt s láskou od Miška <i class="fas fa-heart text-red-500"></i>. Vznik tohto projektu bol finančne podporený a vynútený veľmi múdrym a zaujímavým individuálom menom Maťko, za hru "Sons Of The Forest" s cenou 3 Olivových Olejov.</p>
+  </footer>
+</body>
+</html>

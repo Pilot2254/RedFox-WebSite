@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StormFunding - Account Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'storm-blue': '#3B82F6',
+                        'storm-green': '#10B981',
+                        'storm-red': '#EF4444',
+                        'storm-yellow': '#F59E0B',
+                    },
+                    screens: {
+                        'xs': '475px', // Additional screen size for extra small devices
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-neutral-900 text-neutral-300 min-h-screen flex flex-col lg:flex-row">
+
+    <!-- Sidebar -->
+    <nav class="bg-neutral-800 w-full lg:w-64 h-full lg:h-screen p-4 lg:p-6 flex flex-col">
+        <h1 class="text-xl lg:text-2xl font-bold text-storm-blue mb-4 lg:mb-8">StormFunding</h1>
+        <div class="flex flex-col space-y-4">
+            <a href="../dashboard/" class="text-storm-blue font-semibold hover:text-white flex items-center">
+                <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+            </a>
+            <a href="../settings/" class="hover:text-white flex items-center">
+                <i class="fas fa-cog mr-2"></i> Settings
+            </a>
+            <a href="../leaderboard/" class="hover:text-white flex items-center">
+                <i class="fas fa-trophy mr-2"></i> Leaderboard
+            </a>
+            <a href="../earn/" class="hover:text-white flex items-center">
+                <i class="fas fa-money-bill-wave mr-2"></i> Earn
+            </a>
+            <a href="../accounts-overview/" class="hover:text-white flex items-center">
+                <i class="fas fa-users mr-2"></i> Accounts Overview
+            </a>
+            <a href="../wallet/" class="hover:text-white flex items-center">
+                <i class="fas fa-wallet mr-2"></i> Wallet
+            </a>
+            <a href="../contact/" class="hover:text-white flex items-center">
+                <i class="fas fa-envelope mr-2"></i> Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-4 lg:p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+            <!-- Left Column -->
+            <div class="lg:col-span-1">
+                <!-- Account Info -->
+                <div class="bg-neutral-800 rounded-lg p-4 lg:p-6 mb-4 lg:mb-6">
+                    <h2 class="text-xl lg:text-2xl font-bold mb-2 lg:mb-4 flex items-center text-storm-blue">
+                        <i class="fas fa-wallet mr-2"></i> Account
+                    </h2>
+                    <div class="flex flex-wrap justify-between items-center mb-2 lg:mb-4">
+                        <div class="bg-neutral-700 rounded-md px-2 lg:px-3 py-1 flex items-center mb-2 lg:mb-0">
+                            <span class="font-semibold mr-2">#803539</span>
+                            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded">ACTIVE</span>
+                        </div>
+                        <button class="bg-storm-blue text-white text-sm lg:text-base px-3 lg:px-4 py-2 rounded-md hover:bg-blue-600">
+                            <i class="fas fa-share-alt mr-1"></i> Share metrics
+                        </button>
+                    </div>
+                    <div class="space-y-2 lg:space-y-4 text-xs lg:text-sm">
+                        <div class="flex justify-between">
+                            <span>Program</span>
+                            <span class="font-semibold">Advanced Trader</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Account Size</span>
+                            <span class="font-semibold">$100,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Start Trade Period</span>
+                            <span class="font-semibold">01-08-2024</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Daily Reset Time</span>
+                            <span class="font-semibold">09:21:22</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program Objectives -->
+                <div class="bg-neutral-800 rounded-lg p-4 lg:p-6">
+                    <h3 class="text-lg lg:text-xl font-semibold mb-2 lg:mb-4 flex items-center text-storm-blue">
+                        <i class="fas fa-bullseye mr-2"></i> Program Objectives
+                    </h3>
+                    <div class="space-y-2 lg:space-y-4 text-xs lg:text-sm">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-semibold">Profit Target</h4>
+                                <p class="text-xl lg:text-2xl font-bold">$900.00</p>
+                                <p class="text-neutral-500">$0.00 (0.0%)</p>
+                            </div>
+                            <span class="bg-storm-blue text-white text-xs px-2 py-1 rounded">Ongoing</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-semibold">Max Daily Loss</h4>
+                                <p class="text-xl lg:text-2xl font-bold">$400.00</p>
+                                <p class="text-neutral-500">$0.00 (0.0%)</p>
+                            </div>
+                            <span class="bg-storm-blue text-white text-xs px-2 py-1 rounded">Ongoing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle and Right Columns -->
+            <div class="lg:col-span-2">
+                <div class="bg-neutral-800 rounded-lg p-4 lg:p-6 mb-4 lg:mb-6">
+                    <h2 class="text-xl lg:text-2xl font-bold mb-2 lg:mb-4 text-storm-blue">Account Performance</h2>
+                    <canvas id="performanceChart" class="w-full h-48 lg:h-64"></canvas>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
+                    <div class="bg-neutral-800 p-4 lg:p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-2 text-storm-blue">Profit Target</h3>
+                        <p class="text-xl lg:text-2xl font-bold text-storm-green">$0.00 Profit</p>
+                        <p class="text-xs lg:text-sm">Profit target $900.00</p>
+                        <p class="text-xs lg:text-sm">Equity Pass Level $10,900.00</p>
+                    </div>
+                    <div class="bg-neutral-800 p-4 lg:p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-2 text-storm-blue">Daily Loss Limit</h3>
+                        <p class="text-xl lg:text-2xl font-bold text-storm-red">$0.00 Lost</p>
+                        <p class="text-xs lg:text-sm">Maximum $400.00 daily loss</p>
+                        <p class="text-xs lg:text-sm">Equity Breach Level $9,506.29</p>
+                    </div>
+                    <div class="bg-neutral-800 p-4 lg:p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-2 text-storm-blue">Max Loss Limit</h3>
+                        <p class="text-xl lg:text-2xl font-bold text-storm-red">$0.00 Lost</p>
+                        <p class="text-xs lg:text-sm">Maximum $600.00 loss</p>
+                        <p class="text-xs lg:text-sm">Equity Breach Level $9,400.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Sections -->
+        <div class="mt-4 lg:mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            <div class="bg-neutral-800 rounded-lg p-4 lg:p-6">
+                <h3 class="text-lg lg:text-xl font-semibold mb-2 lg:mb-4 text-storm-blue">
+                    <i class="fas fa-history mr-2"></i> Recent Trades
+                </h3>
+                <ul class="space-y-1 lg:space-y-2">
+                    <li class="flex justify-between text-xs lg:text-sm"><span>EURUSD</span><span class="text-storm-green">+$120.50</span></li>
+                    <li class="flex justify-between text-xs lg:text-sm"><span>GBPJPY</span><span class="text-storm-red">-$45.20</span></li>
+                    <li class="flex justify-between text-xs lg:text-sm"><span>USDCAD</span><span class="text-storm-green">+$67.80</span></li>
+                </ul>
+            </div>
+            <div class="bg-neutral-800 rounded-lg p-4 lg:p-6">
+                <h3 class="text-lg lg:text-xl font-semibold mb-2 lg:mb-4 text-storm-blue">
+                    <i class="fas fa-clock mr-2"></i> Trading Hours
+                </h3>
+                <div class="flex justify-between mb-1 lg:mb-2 text-xs lg:text-sm">
+                    <span>Today's Trading Time</span>
+                    <span>2h 15m</span>
+                </div>
+                <div class="w-full bg-neutral-700 rounded-full h-1.5 lg:h-2.5">
+                    <div class="bg-storm-blue h-1.5 lg:h-2.5 rounded-full" style="width: 45%"></div>
+                </div>
+                <p class="text-xs lg:text-sm mt-1 lg:mt-2">5h 45m remaining</p>
+            </div>
+            <div class="bg-neutral-800 rounded-lg p-4 lg:p-6">
+                <h3 class="text-lg lg:text-xl font-semibold mb-2 lg:mb-4 text-storm-blue">
+                    <i class="fas fa-chart-line mr-2"></i> Top Performing Instruments
+                </h3>
+                <ol class="list-decimal list-inside space-y-1 text-xs lg:text-sm">
+                    <li>EURUSD</li>
+                    <li>GBPUSD</li>
+                    <li>USDJPY</li>
+                    <li>AUDUSD</li>
+                </ol>
+            </div>
+            <div class="bg-neutral-800 rounded-lg p-4 lg:p-6">
+                <h3 class="text-lg lg:text-xl font-semibold mb-2 lg:mb-4 text-storm-blue">
+                    <i class="fas fa-exclamation-triangle mr-2"></i> Alerts
+                </h3>
+                <ul class="space-y-1 lg:space-y-2 text-xs lg:text-sm">
+                    <li class="flex justify-between"><span>EURUSD Breached Daily Limit</span><span class="text-storm-red">-3.5%</span></li>
+                    <li class="flex justify-between"><span>GBPJPY Close to Breach</span><span class="text-storm-yellow">-2.7%</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Example chart script
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Performance',
+                    data: [10, 20, 15, 25, 22, 30],
+                    borderColor: '#3B82F6',
+                    fill: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

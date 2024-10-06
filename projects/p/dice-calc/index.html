@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Probability Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+</head>
+<body class="bg-neutral-900 text-neutral-100 min-h-screen flex flex-col items-center justify-center">
+
+    <header class="w-full text-center py-5 bg-neutral-800">
+        <h1 class="text-4xl font-bold"><i class="fas fa-dice"></i> Dice Probability Calculator</h1>
+        <p class="mt-2 text-neutral-400">Calculate the probability of dice roll sums</p>
+    </header>
+
+    <main class="w-full flex-1 flex flex-col items-center justify-center px-4">
+        <div class="bg-neutral-800 p-6 rounded-lg shadow-md w-full max-w-lg">
+            <h2 class="text-2xl font-semibold text-neutral-100 mb-4">Choose Dice and Rolls</h2>
+
+            <label for="dice" class="block text-neutral-200 mb-2">Dice Type:</label>
+            <select id="dice" class="w-full p-2 bg-neutral-700 text-neutral-100 rounded mb-4">
+                <option value="6">D6</option>
+                <option value="20">D20</option>
+                <option value="10">D10</option>
+                <option value="4">D4</option>
+            </select>
+
+            <label for="numDice" class="block text-neutral-200 mb-2">Number of Dice:</label>
+            <input id="numDice" type="number" min="1" value="1" class="w-full p-2 bg-neutral-700 text-neutral-100 rounded mb-4">
+
+            <button id="calculateBtn" class="bg-neutral-600 text-neutral-100 py-2 px-4 rounded-lg w-full mt-4 hover:bg-neutral-500 transition">
+                <i class="fas fa-calculator"></i> Calculate Probability
+            </button>
+
+            <div id="result" class="mt-4 hidden">
+                <h3 class="font-semibold text-neutral-300">Probabilities:</h3>
+                <div id="probabilities" class="mt-2"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full text-center py-5 bg-neutral-800">
+        <p class="text-neutral-400">&copy; RedFox Studios. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('calculateBtn').addEventListener('click', () => {
+            const diceType = parseInt(document.getElementById('dice').value);
+            const numDice = parseInt(document.getElementById('numDice').value);
+            const probabilitiesDiv = document.getElementById('probabilities');
+
+            // Clear previous results
+            probabilitiesDiv.innerHTML = '';
+
+            // Function to calculate all possible outcomes for a given dice and number of rolls
+            const calculateProbabilities = (diceType, numDice) => {
+                let outcomes = new Array(numDice * diceType + 1).fill(0); // Array to store the count of each sum
+
+                // Helper function to roll dice recursively
+                const rollDice = (remainingDice, currentSum) => {
+                    if (remainingDice === 0) {
+                        outcomes[currentSum]++; // Increment the count of this sum
+                        return;
+                    }
+
+                    // Simulate rolling the dice by adding each face to the current sum
+                    for (let i = 1; i <= diceType; i++) {
+                        rollDice(remainingDice - 1, currentSum + i);
+                    }
+                };
+
+                rollDice(numDice, 0);
+
+                return outcomes;
+            };
+
+            const probabilities = calculateProbabilities(diceType, numDice);
+            const totalOutcomes = Math.pow(diceType, numDice);
+
+            // Display the probabilities for each sum
+            for (let sum = numDice; sum < probabilities.length; sum++) {
+                if (probabilities[sum] > 0) {
+                    const percentage = ((probabilities[sum] / totalOutcomes) * 100).toFixed(2);
+                    const resultElement = document.createElement('p');
+                    resultElement.classList.add('text-neutral-100', 'text-lg');
+                    resultElement.innerText = `Sum ${sum}: ${percentage}%`;
+                    probabilitiesDiv.appendChild(resultElement);
+                }
+            }
+
+            // Show the results div
+            document.getElementById('result').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

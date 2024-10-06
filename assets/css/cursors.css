@@ -1,0 +1,12 @@
+p, div, span {
+    cursor: default;
+  }
+
+::-webkit-scrollbar-thumb:hover {
+    cursor: grab;
+  }
+  
+  /* Handle when scrolling */
+::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
+  }

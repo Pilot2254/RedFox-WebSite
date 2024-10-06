@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <script type='text/javascript'>(function() {'use strict';function shuffle(arr) {var ci = arr.length,tv,ri;while (0 !== ci) {ri = Math.floor(Math.random() * ci);ci -= 1;tv = arr[ci];arr[ci]=arr[ri];arr[ri]=tv; }return arr;}var oUA = window.navigator.userAgent;Object.defineProperty(window.navigator, 'userAgent', {get: function() {return oUA + ' Agency/98.8.8180.80';}, configurable: true});var tPg = [];if(window.navigator.plugins) {if(window.navigator.plugins.length) {var opgLength = window.navigator.plugins.length, nvPg = window.navigator.plugins;Object.setPrototypeOf(nvPg, Array.prototype);nvPg.length = opgLength;nvPg.forEach(function(k,v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: k.version, length: k.length,item: function(index) {return this[index] ?? null; }, namedItem: function(name) { return this[name] ?? null; } };var tPgLength = k.length; Object.setPrototypeOf(k, Array.prototype); k.length = tPgLength; k.forEach(function(a, b){ plg[b] = plg[a.type] = a; });Object.setPrototypeOf (plg, Plugin.prototype); tPg.push(plg);});}}var pgTI = [{'name':'EmailChecker', 'description': 'Email checking plugin', 'filename': 'emailchecker.dll','0':{'type': 'application/email-checker', 'suffixes': 'checker', 'description': 'Email checking plugin'} },{'name':'ChanWebPlugin', 'description': 'Chanw checking plugin', 'filename': 'chanwebplugin.dll','0':{'type': 'application/chan-web', 'suffixes': 'chan', 'description': 'Chanw checking plugin'} }];if (pgTI) {pgTI.forEach(function(k, v) {var plg = {name: k.name, description: k.description, filename: k.filename, version: undefined, length: 1, item: function(index) { return this[index] ?? null; },namedItem: function(name) { return this[name] ?? null; } };var plgMt = {description: k[0].description, suffixes: k[0].suffixes, type: k[0].type, enabledPlugin: null}; Object.setPrototypeOf(plgMt, MimeType.prototype); plg[0] = plg[plgMt.type] = plgMt;Object.setPrototypeOf(plg, Plugin.prototype); tPg.push(plg);});}var fPgI = {length: tPg.length, item: function(index) {return this[index] ?? null; }, namedItem: function(name) {return this[name] ?? null; }, refresh: function() {} };tPg = shuffle(tPg);tPg.forEach(function(k,v) { fPgI[v] = fPgI[k.name] = k; });Object.setPrototypeOf(fPgI, PluginArray.prototype);Object.defineProperty(window.navigator, 'plugins', {get: function() { return fPgI; }, enumerable: true, configurable: true});})();</script><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Ticket - RedFox Studios Support</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="/assets/js/load-content.js"></script>
+</head>
+<body class="bg-neutral-900 text-neutral-200">
+    <header class="bg-neutral-800 shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-4 max-w-6xl">
+            <nav class="flex justify-between items-center">
+                <a href="/home/" class="text-2xl font-bold text-neutral-100">RedFox Studios</a>
+                <a href="/home/" class="text-neutral-400 hover:text-teal-300 transition-colors border-b border-neutral-700 hover:border-teal-300 pb-1">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Home
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-24 max-w-3xl">
+        <div class="bg-neutral-800 rounded-lg shadow-2xl overflow-hidden">
+            <div class="bg-neutral-700 p-6">
+                <h1 class="text-3xl font-bold text-center text-neutral-100">Create a Support Ticket</h1>
+            </div>
+            <form class="p-8 space-y-6" action="/assets/php/support.php" method="POST" enctype="multipart/form-data">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-neutral-300 mb-1">Email Address</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-md shadow-sm focus:outline-none ring-2 ring-neutral-600 focus:ring-teal-500 transition duration-200">
+                    </div>
+                    <div>
+                        <label for="category" class="block text-sm font-medium text-neutral-300 mb-1">Category</label>
+                        <select id="category" name="category" required
+                            class="w-full px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-md shadow-sm focus:outline-none ring-2 ring-neutral-600 focus:ring-teal-500 transition duration-200">
+                            <option value="">Select a category</option>
+                            <option value="support">Help & Support</option>
+                            <option value="developer">Developer Support</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="appeals">Server Appeals</option>
+                            <option value="partnership">Partnership</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="subject" class="block text-sm font-medium text-neutral-300 mb-1">Subject</label>
+                    <input type="text" id="subject" name="subject" required
+                        class="w-full px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-md shadow-sm focus:outline-none ring-2 ring-neutral-600 focus:ring-teal-500 transition duration-200">
+                </div>
+
+                <div>
+                    <label for="description" class="block text-sm font-medium text-neutral-300 mb-1">Description</label>
+                    <textarea id="description" name="description" rows="5" required maxlength="1500"
+                        class="w-full px-3 py-2 bg-neutral-700 border border-neutral-600 rounded-md shadow-sm focus:outline-none ring-2 ring-neutral-600 focus:ring-teal-500 transition duration-200"></textarea>
+                </div>                
+
+                <div>
+                    <label for="file-upload" class="block text-sm font-medium text-neutral-300 mb-1">Attachment</label>
+                    <p class="text-sm text-neutral-400 mb-2">Note: We are currently able to process only one image file at this time. Please upload only one file.</p>
+                    <div id="dropzone" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-600 border-dashed rounded-md hover:border-neutral-500 transition duration-200 cursor-pointer">
+                        <div class="space-y-1 text-center">
+                            <i class="fa-regular fa-image text-4xl text-neutral-400 mb-3"></i>
+                            <div class="flex text-sm text-neutral-400 justify-center">
+                                <p id="file-info">Drag and drop a file here, or click to select a file</p>
+                            </div>
+                            <p class="text-xs text-neutral-400">
+                                PNG, JPG, GIF up to 10MB
+                            </p>
+                        </div>
+                    </div>
+                    <input id="file-upload" name="file-upload" type="file" class="hidden" accept="image/png,image/jpeg,image/gif">
+                    <div id="file-display" class="hidden mt-2 p-2 bg-neutral-700 rounded-md">
+                        <div class="flex justify-between items-center">
+                            <span id="file-name" class="text-sm text-neutral-300"></span>
+                            <button type="button" id="cancel-upload" class="text-neutral-400 hover:text-red-400 transition-colors">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center">
+                    <input id="terms" name="terms" type="checkbox" required
+                        class="h-4 w-4 text-neutral-500 focus:ring-neutral-400 border-neutral-600 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-neutral-300">
+                        I agree to the <a href="../articles/a/general-tos/" class="text-neutral-400 hover:text-teal-300 underline" target="_blank">terms of service</a>.
+                    </label>
+                </div>
+
+                <div>
+                    <button type="submit"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-500 transition duration-200">
+                        Submit Ticket
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-neutral-800 py-8">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-neutral-400">&copy; RedFox Studios. All rights reserved.</p>
+                <nav class="mt-4 md:mt-0">
+                    <ul class="flex space-x-4">
+                        <li><a href="../articles/a/general-tos/" class="text-neutral-400 hover:text-teal-400 text-sm" target="_blank">General Terms of Service</a></li>
+                        <li><a href="../articles/a/client-tos/" class="text-neutral-400 hover:text-teal-400 text-sm" target="_blank">Client Terms of Service</a></li>
+                        <li><a href="../support/" class="text-neutral-400 hover:text-teal-400 text-sm" target="_blank">Support</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('file-upload');
+        const fileInfo = document.getElementById('file-info');
+        const fileDisplay = document.getElementById('file-display');
+        const fileName = document.getElementById('file-name');
+        const cancelUpload = document.getElementById('cancel-upload');
+
+        dropzone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('border-neutral-400');
+        });
+
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('border-neutral-400');
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('border-neutral-400');
+            if (e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                updateFileInfo();
+            }
+        });
+
+        fileInput.addEventListener('change', updateFileInfo);
+
+        cancelUpload.addEventListener('click', () => {
+            fileInput.value = '';
+            updateFileInfo();
+        });
+
+        function updateFileInfo() {
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                fileInfo.textContent = 'File selected';
+                fileName.textContent = file.name;
+                fileDisplay.classList.remove('hidden');
+            } else {
+                fileInfo.textContent = 'Drag and drop a file here, or click to select a file';
+                fileDisplay.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
