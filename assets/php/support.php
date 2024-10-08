@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $file_tmp_name = $file['tmp_name'];
     $file_error = $file['error'];
 
-    $to = 'support@redfox-studios.org';  // Your email
+    $to = 'support@redfox-studios.org';  // Default
     $headers = "From: " . $email . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
     

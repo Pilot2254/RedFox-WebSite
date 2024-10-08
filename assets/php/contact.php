@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate fields
     if ($name && $email && $message) {
         // Email settings
-        $to = "support@redfox-studios.org";  // Change this to your email
+        $to = "support@redfox-studios.org";  // Default
         $subject = "New Contact Form Submission from $name";
         $body = "
             Name: $name\n

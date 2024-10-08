@@ -72,3 +72,4 @@ function loadCSS(href) {
   loadJS('/assets/js/transition.js', 'defer');
   loadJS('/assets/js/capture-website-logs.js', 'defer');
   loadJS('/assets/js/catch-errors.js', 'defer');
+  loadJS('/assets/js/progress-bar.js', 'async');
