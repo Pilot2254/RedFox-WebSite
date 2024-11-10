@@ -1,17 +1,49 @@
-# RedFox Studios Website and Projects
+# RedFox Studios Website
 
-Welcome to the RedFox Studios repository! This repository is the central hub for all the exciting projects and developments that we are working on at RedFox Studios. Currently, the repository contains the source code and assets for our official website, along with various other innovative projects that we're developing.
+Welcome to the official GitHub repository for the **RedFox Studios Website**! This site showcases our projects, team, and mission, serving as a hub for all things RedFox. Built with precision and style, our website utilizes modern front-end frameworks and technologies to provide an exceptional user experience.
 
-## Current Status
+---
 
-As of now, this repository is private, as we are in the process of refining and perfecting our projects. We value quality and innovation, and we want to ensure that everything we create meets the high standards we set for ourselves. While the repository remains private for the time being, we are working tirelessly to develop and enhance our offerings.
+## Tech Stack
 
-## Looking Ahead
+This project was developed using the following technologies:
 
-We believe that the work we are doing at RedFox Studios has the potential to make a significant impact. Our goal is to continue growing, improving, and eventually share our work with the world. We are confident that as we continue to innovate and push the envelope, RedFox Studios will gain recognition and popularity.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework for building custom designs quickly and responsively.
+- **[FontAwesome](https://fontawesome.com/)** - Comprehensive icon library for incorporating attractive and accessible icons.
+- **[Google Fonts](https://fonts.google.com/)** - High-quality open-source fonts for a clean and professional look.
+- **HTML, CSS, SCSS, and JavaScript** - Core web technologies used for structuring, styling, and adding interactivity to our site.
 
-When the time is right, we plan to make this repository public, allowing others to see, use, and contribute to our projects. We are excited about the future and the possibilities that lie ahead, and we look forward to sharing our journey with the broader community.
+## Installation
 
-## Get Involved
+To set up this project locally, clone this repository and install the required dependencies.
 
-While the repository is private, we encourage anyone who is interested in our work to stay connected with us. Follow RedFox Studios on social media, subscribe to our newsletter, or reach out to us directly to learn more about our projects and our vision for the future. We welcome collaboration, feedback, and support from the community, and we can't wait to see what we can achieve together.
+```bash
+# Clone the repository
+git clone https://github.com/RedFox-Studios/Website.git
+
+# Navigate to the project directory
+cd Website
+```
+
+Since this project primarily utilizes HTML, CSS, and JavaScript, a web server or a live-server extension can be used to preview the project in your local environment.
+
+## Contribution Guidelines
+
+To maintain the integrity of this project, **unauthorized modifications or contributions are not allowed** without prior approval. This repository is managed exclusively by the RedFox Studios team, and external contributions are restricted.
+
+If you are interested in contributing or collaborating, please contact us directly. Unauthorized pull requests or issues may be rejected.
+
+---
+
+## License
+
+This project is licensed under a proprietary license for RedFox Studios and Apache License 2.0. Redistribution, modification, or any unauthorized use of this code is strictly prohibited without explicit written permission.
+
+## Contact
+
+For inquiries or more information, please reach out to our team:
+
+- **Website:** [redfox-studios.org](https://redfox-studios.org)
+- **Email:** [supportt@redfox-studios.org](mailto:support@redfox-studios.org)
+
+Thank you for respecting our guidelines and supporting RedFox Studios! 🦊
