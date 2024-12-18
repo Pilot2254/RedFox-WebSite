@@ -19,10 +19,10 @@ To set up this project locally, clone this repository and install the required d
 
 ```bash
 # Clone the repository
-git clone https://github.com/RedFox-Studios/Website.git
+git clone https://github.com/RedFox-Studios/redfox-studios.git
 
 # Navigate to the project directory
-cd Website
+cd redfox-studios
 ```
 
 Since this project primarily utilizes HTML, CSS, and JavaScript, a web server or a live-server extension can be used to preview the project in your local environment.
